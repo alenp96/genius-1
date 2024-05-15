@@ -36,60 +36,8 @@ const routes = [
     icon: MessageSquare,
     href: "/conversation",
     color: "text-violet-500",
-  },
-  {
-    label: "Image Generation",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    href: "/image",
-  },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    href: "/video",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
-    href: "/music",
-  },
-  {
-    label: "Code Generation",
-    icon: Code,
-    color: "text-green-700",
-    href: "/code",
-  },
-  {
-    label: "Chat with Pdf",
-    icon: FileText,
-    color: "text-purple-700",
-    href: "/pdf",
-  },
-  {
-    label: "Chat with Csv",
-    icon: FileSpreadsheet,
-    color: "text-blue-700",
-    href: "/csv",
-  },
-  {
-    label: "Chat with web",
-    icon: Globe,
-    color: "text-yellow-700",
-    href: "/web",
-  },
-  {
-    label: "Standard Operating Procedure",
-    icon: Bot,
-    color: "text-cyan-700",
-    href: "/sop",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-  },
+  }
+
 ];
 
 export const Sidebar = ({
