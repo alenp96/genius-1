@@ -1,6 +1,10 @@
 # genius
 conversation using Ai
 
+
+### create .env file
+
+copy content of env.example to .env
 ### install dependencies
 
 ```shell
