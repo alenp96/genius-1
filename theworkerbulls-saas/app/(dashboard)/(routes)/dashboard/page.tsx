@@ -9,9 +9,7 @@ import { cn } from "@/lib/utils";
 
 import { tools } from "@/constants";
 import useSWR from "swr";
-import {
-price,prod
-} from "@/lib/stripe";
+
 // const fetcher = (url:string) => fetch(url).then((res) => res.json());
 export default  function HomePage() {
   const router = useRouter();
