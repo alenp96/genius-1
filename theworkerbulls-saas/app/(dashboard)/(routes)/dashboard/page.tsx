@@ -13,7 +13,7 @@ import {
 price,prod
 } from "@/lib/stripe";
 // const fetcher = (url:string) => fetch(url).then((res) => res.json());
-export default  async function HomePage() {
+export default  function HomePage() {
   const router = useRouter();
   //  const _price= await price()
   //  const _prod = await prod()

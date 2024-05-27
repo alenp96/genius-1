@@ -52,9 +52,9 @@ export async function createCheckoutLink(customer: string) {
 
   return checkout.url;
 }
-export async function createCustomerIfNull() {
+export async function CreateCustomerIfNull(email: string) {
   const { userId } = auth();
-  const {  user } = useUser();
+  // const {  user } = useUser();
 
   if (userId) {
 
@@ -66,7 +66,7 @@ export async function createCustomerIfNull() {
   
       if (!_user) {
           const customer = await stripe.customers.create({
-              email: String(user?.primaryEmailAddress)
+              email: String(email)
           })
          
 
