@@ -5,16 +5,17 @@ import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
 
-import { hasSubscription } from "@/lib/stripe";
+import { hasSubscription ,createCustomerIfNull} from "@/lib/stripe";
 const settingsUrl = absoluteUrl("/settings");
 
 export async function GET() {
   try {
     const { userId } = auth();
     const user = await currentUser();
-    console.log('user-->',user)
+    console.log('user-->',user?.emailAddresses)
     
     const user2 = await hasSubscription();
+    // const customer = await createCustomerIfNull();
     console.log('subs',user2)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
