@@ -11,9 +11,10 @@ const settingsUrl = absoluteUrl("/settings");
 export async function GET() {
   try {
     const { userId } = auth();
-    const user = await currentUser();
+    // const user = await currentUser();
 
-    if (!userId || !user) {
+    // if (!userId || !user) {
+      if (!userId ) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
@@ -35,12 +36,12 @@ export async function GET() {
 
     //   return new NextResponse(JSON.stringify({ url: stripeSession.url }))
     }else{
-      console.log('email',user)
+      console.log('email')
     }
 
 
 
-    return new NextResponse(JSON.stringify({ state: user}))
+    return new NextResponse(JSON.stringify({ state: 'url'}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
