@@ -24,11 +24,11 @@ const ProfilePage = () => {
       // const hasSub = await hasSubscription()
       // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
       // const checkoutLink = await createCheckoutLink(String(customer));
-
+      const data =await staticData.json()
       // console.log('has sub', hasSub)
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
-      console.log('in useeffect',staticData.json())
+      console.log('in useeffect',data)
     }
 
     // call the function
