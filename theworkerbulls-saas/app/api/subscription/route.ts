@@ -22,14 +22,18 @@ export async function GET() {
       }
     })
 
-    // if (userSubscription && userSubscription.stripeCustomerId) {
-    //   const stripeSession = await stripe.billingPortal.sessions.create({
-    //     customer: userSubscription.stripeCustomerId,
-    //     return_url: settingsUrl,
-    //   })
+    if (userSubscription && userSubscription.stripeCustomerId) {
+      const subscriptions = await stripe.subscriptions.list({
+        customer: String(userSubscription.stripeCustomerId)
+    })
+    return subscriptions.data.length > 0
+      // const stripeSession = await stripe.billingPortal.sessions.create({
+      //   customer: userSubscription.stripeCustomerId,
+      //   return_url: settingsUrl,
+      // })
 
     //   return new NextResponse(JSON.stringify({ url: stripeSession.url }))
-    // }
+    }
 
     // const stripeSession = await stripe.checkout.sessions.create({
     //   success_url: settingsUrl,
@@ -59,7 +63,9 @@ export async function GET() {
     //   },
     // })
 
-    return new NextResponse(JSON.stringify({ url: 'url' }))
+    return new NextResponse(JSON.stringify({ state: false}))
+
+    // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
     console.log("[STRIPE_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
