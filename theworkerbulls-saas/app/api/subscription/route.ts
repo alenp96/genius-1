@@ -15,6 +15,7 @@ export async function GET() {
     console.log('user-->',user)
     
     const user2 = await hasSubscription();
+    console.log('subs',user2)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
     // }
