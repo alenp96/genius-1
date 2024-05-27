@@ -19,7 +19,7 @@ const ProfilePage = () => {
   const [link, SetLInk] = useState()
   // const router = useRouter();
   const { user } = useUser();
-  console.log('user',user)
+  console.log('user',user?.primaryEmailAddress?.emailAddress)
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`, { cache: 'force-cache' })

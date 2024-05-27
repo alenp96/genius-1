@@ -10,9 +10,9 @@ const settingsUrl = absoluteUrl("/settings");
 export async function GET() {
   try {
     const { userId } = auth();
-    const user = await currentUser();
+    // const user = await currentUser();
 
-    if (!userId || !user) {
+    if (!userId ) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
