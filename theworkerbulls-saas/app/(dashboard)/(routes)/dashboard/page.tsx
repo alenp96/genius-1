@@ -9,10 +9,15 @@ import { cn } from "@/lib/utils";
 
 import { tools } from "@/constants";
 import useSWR from "swr";
+import {
+price,prod
+} from "@/lib/stripe";
 // const fetcher = (url:string) => fetch(url).then((res) => res.json());
-export default  function HomePage() {
+export default  async function HomePage() {
   const router = useRouter();
-
+  //  const _price= await price()
+  //  const _prod = await prod()
+  //  console.log(_price)
 
 
   return (
