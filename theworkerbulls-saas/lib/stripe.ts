@@ -1,3 +1,4 @@
+'use server'
 import Stripe from "stripe"
 import { auth,useUser } from "@clerk/nextjs";
 
