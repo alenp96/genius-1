@@ -22,7 +22,7 @@ const ProfilePage = () => {
   console.log('user',user?.primaryEmailAddress?.emailAddress)
   useEffect(() => {
     const fetchData = async () => {
-      const hasSub = await fetch(`/api/subscription`, { cache: 'force-cache' })
+      const hasSub = await fetch(`/api/subscription`)
       // const checkoutLink = await fetch(`/api/subscription1`, { cache: 'force-cache' })
       // const creatCustomer = await fetch(`/api/subscription2`, { cache: 'force-cache' })
       // const hasSub = await hasSubscription()
