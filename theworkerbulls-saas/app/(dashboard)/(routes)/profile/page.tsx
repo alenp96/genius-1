@@ -23,18 +23,18 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`, { cache: 'force-cache' })
-      const checkoutLink = await fetch(`/api/subscription1`, { cache: 'force-cache' })
-      const creatCustomer = await fetch(`/api/subscription2`, { cache: 'force-cache' })
+      // const checkoutLink = await fetch(`/api/subscription1`, { cache: 'force-cache' })
+      // const creatCustomer = await fetch(`/api/subscription2`, { cache: 'force-cache' })
       // const hasSub = await hasSubscription()
       // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
       // const checkoutLink = await createCheckoutLink(String(customer));
       const _hasSub =await hasSub.json()
-      const _checkoutLink =await checkoutLink.json()
-      const _creatCustomer =await creatCustomer.json()
+      // const _checkoutLink =await checkoutLink.json()
+      // const _creatCustomer =await creatCustomer.json()
       // console.log('has sub', hasSub)
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
-      console.log('in useeffect',_hasSub,_checkoutLink,_creatCustomer)
+      console.log('in useeffect',_hasSub)
       // console.log('has sub',hasSub)
     }
 
