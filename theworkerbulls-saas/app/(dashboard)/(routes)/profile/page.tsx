@@ -28,7 +28,7 @@ const ProfilePage = () => {
       // console.log('has sub', hasSub)
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
-      console.log('in useeffect')
+      console.log('in useeffect',staticData)
     }
 
     // call the function
