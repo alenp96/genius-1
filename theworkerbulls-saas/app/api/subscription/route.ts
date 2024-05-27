@@ -5,7 +5,7 @@ import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
 
-import { hasSubscription ,createCustomerIfNull} from "@/lib/stripe";
+import { hasSubscription ,createCustomerIfNull,createCheckoutLink} from "@/lib/stripe";
 const settingsUrl = absoluteUrl("/settings");
 
 export async function GET() {
@@ -14,9 +14,10 @@ export async function GET() {
     const user = await currentUser();
     console.log('user-->',user?.emailAddresses[0].emailAddress)
     
-    const user2 = await hasSubscription();
+    const sub = await hasSubscription();
     const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    console.log('subs',user2,customer)
+    const checkoutLink = await createCheckoutLink(String(customer));
+    console.log('subs',sub,customer,checkoutLink)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
     // }
@@ -68,7 +69,7 @@ export async function GET() {
     //   },
     // })
 
-    return new NextResponse(JSON.stringify({ state: false}))
+    return new NextResponse(JSON.stringify({ sub: sub,link:checkoutLink}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
