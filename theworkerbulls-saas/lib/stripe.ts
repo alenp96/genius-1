@@ -57,7 +57,7 @@ export async function createCheckoutLink(customer: string) {
   return checkout.url;
 }
 export async function CreateCustomerIfNull(email: string) {
-  const { userId } = auth();
+  const { userId ,user} = auth();
   // const {  user } = useUser();
 
   if (userId) {

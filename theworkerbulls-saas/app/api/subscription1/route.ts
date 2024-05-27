@@ -10,7 +10,7 @@ const settingsUrl = absoluteUrl("/settings");
 
 export async function GET() {
   try {
-    const { userId } = auth();
+    const { userId,user } = auth();
     // const { isLoaded, isSignedIn, user } = useUser();
     // const user = await currentUser();
 
