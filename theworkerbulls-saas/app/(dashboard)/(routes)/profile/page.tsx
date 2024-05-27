@@ -1,10 +1,10 @@
 "use client";
 import { MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
-import { auth,useUser } from "@clerk/nextjs";
+import { auth, useUser } from "@clerk/nextjs";
 import {
   createCheckoutLink,
   CreateCustomerIfNull,
@@ -12,9 +12,28 @@ import {
   stripe,
 } from "@/lib/stripe";
 
-const ProfilePage =   () => {
+const ProfilePage = () => {
+  const [sub, SetSub] = useState()
+  const [customer, SetCustomer] = useState()
+  const [link, SetLInk] = useState()
   // const router = useRouter();
-  const {  user } = useUser();
+  const { user } = useUser();
+  useEffect(() => {
+    const fetchData = async () => {
+      const hasSub = await hasSubscription()
+      const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
+      const checkoutLink = await createCheckoutLink(String(customer));
+
+      console.log('has sub', hasSub)
+      console.log('customer', customer)
+      console.log('checkout link', checkoutLink)
+    }
+
+    // call the function
+    fetchData()
+
+
+  }, [])
   // const [isLoading, SetIsLoading] = useState(false)
   // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress));
   // const hasSub = await hasSubscription();
@@ -34,7 +53,7 @@ const ProfilePage =   () => {
   // console.log('has sub',hasSub)
   // console.log('customer',customer)
   // console.log('checkout link',checkoutLink)
-  return ( 
+  return (
     <div>
       <Heading
         title="Profile"
@@ -45,16 +64,16 @@ const ProfilePage =   () => {
       />
       <div className="px-4 lg:px-8">
         <div>
-   
-        <Button className="col-span-12 lg:col-span-2 w-full" type="submit"  size="icon">
-                Manage
-              </Button>
+
+          <Button className="col-span-12 lg:col-span-2 w-full" type="submit" size="icon">
+            Manage
+          </Button>
         </div>
-   
+
       </div>
     </div>
-   );
+  );
 }
- 
+
 export default ProfilePage;
 
