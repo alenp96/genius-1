@@ -20,13 +20,14 @@ const ProfilePage = () => {
   const { user } = useUser();
   useEffect(() => {
     const fetchData = async () => {
-      const hasSub = await hasSubscription()
-      const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
-      const checkoutLink = await createCheckoutLink(String(customer));
+      // const hasSub = await hasSubscription()
+      // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
+      // const checkoutLink = await createCheckoutLink(String(customer));
 
-      console.log('has sub', hasSub)
-      console.log('customer', customer)
-      console.log('checkout link', checkoutLink)
+      // console.log('has sub', hasSub)
+      // console.log('customer', customer)
+      // console.log('checkout link', checkoutLink)
+      console.log('in useeffect')
     }
 
     // call the function
