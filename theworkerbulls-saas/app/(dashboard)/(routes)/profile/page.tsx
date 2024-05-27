@@ -20,6 +20,7 @@ const ProfilePage = () => {
   const { user } = useUser();
   useEffect(() => {
     const fetchData = async () => {
+      const staticData = await fetch(`/api/subscription`, { cache: 'force-cache' })
       // const hasSub = await hasSubscription()
       // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
       // const checkoutLink = await createCheckoutLink(String(customer));
