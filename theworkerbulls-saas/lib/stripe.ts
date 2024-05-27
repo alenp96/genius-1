@@ -35,7 +35,7 @@ export async function hasSubscription() {
       const subscriptions = await stripe.subscriptions.list({
           customer: String(subscription.stripeCustomerId)
       })
-
+console.log('subscribers',subscriptions)
       return subscriptions.data.length > 0;
   }
 
