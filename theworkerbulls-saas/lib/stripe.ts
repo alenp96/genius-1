@@ -37,10 +37,12 @@ export async function createCheckoutLink(customer: string) {
     success_url: "http://localhost:3000/profile?success=true",
     cancel_url: "http://localhost:3000/profile?success=true",
     customer: customer,
+    payment_method_types: ["card"],
     line_items: [
       {
-        price: 'price_1PL7DdRot8TS07y6H1GyiXzK'
-      }
+        price: 'price_1PL7DdRot8TS07y6H1GyiXzK',
+        quantity: 1,
+      },
     ],
     mode: "subscription"
   })

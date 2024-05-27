@@ -34,7 +34,7 @@ const ProfilePage = () => {
       // console.log('has sub', hasSub)
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
-      console.log('in useeffect',_hasSub)
+      console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
       // console.log('has sub',hasSub)
     }
 
