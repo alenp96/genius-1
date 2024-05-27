@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
+import { db } from "@/lib/db";
 
 const settingsUrl = absoluteUrl("/settings");
 
@@ -16,7 +17,7 @@ export async function GET() {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const userSubscription = await prismadb.userSubscription.findUnique({
+    const userSubscription = await db?.userSubscription.findUnique({
       where: {
         userId
       }
