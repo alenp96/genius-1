@@ -12,11 +12,11 @@ export async function GET() {
   try {
     const { userId } = auth();
     const user = await currentUser();
-    console.log('user-->',user?.emailAddresses)
+    console.log('user-->',user?.emailAddresses[0].emailAddress)
     
     const user2 = await hasSubscription();
-    // const customer = await createCustomerIfNull();
-    console.log('subs',user2)
+    const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
+    console.log('subs',user2,customer)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
     // }
