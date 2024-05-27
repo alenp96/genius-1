@@ -9,7 +9,7 @@ import {
   // createCheckoutLink,
   // CreateCustomerIfNull,
   hasSubscription,
-  stripe,
+  // stripe,
 } from "@/lib/stripe";
 
 const ProfilePage = () => {
@@ -21,7 +21,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const staticData = await fetch(`/api/subscription`, { cache: 'force-cache' })
-      const hasSub = await hasSubscription()
+      // const hasSub = await hasSubscription()
       // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
       // const checkoutLink = await createCheckoutLink(String(customer));
       const data =await staticData.json()
@@ -29,7 +29,7 @@ const ProfilePage = () => {
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
       console.log('in useeffect',data)
-      console.log('has sub',hasSub)
+      // console.log('has sub',hasSub)
     }
 
     // call the function
