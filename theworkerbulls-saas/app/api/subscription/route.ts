@@ -11,30 +11,30 @@ export async function GET() {
   try {
     const { userId } = auth();
     const user = await currentUser();
-    console.log('user',user)
+    console.log('user-->',user)
 
-    if (!userId || !user) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
+    // if (!userId || !user) {
+    //   return new NextResponse("Unauthorized", { status: 401 });
+    // }
 
-    const userSubscription = await prismadb.userSubscription.findUnique({
-      where: {
-        userId
-      }
-    })
+    // const userSubscription = await prismadb.userSubscription.findUnique({
+    //   where: {
+    //     userId
+    //   }
+    // })
 
-    if (userSubscription && userSubscription.stripeCustomerId) {
-      const subscriptions = await stripe.subscriptions.list({
-        customer: String(userSubscription.stripeCustomerId)
-    })
-    return subscriptions.data.length > 0
-      // const stripeSession = await stripe.billingPortal.sessions.create({
-      //   customer: userSubscription.stripeCustomerId,
-      //   return_url: settingsUrl,
-      // })
+    // if (userSubscription && userSubscription.stripeCustomerId) {
+    //   const subscriptions = await stripe.subscriptions.list({
+    //     customer: String(userSubscription.stripeCustomerId)
+    // })
+    // return subscriptions.data.length > 0
+    //   // const stripeSession = await stripe.billingPortal.sessions.create({
+    //   //   customer: userSubscription.stripeCustomerId,
+    //   //   return_url: settingsUrl,
+    //   // })
 
-    //   return new NextResponse(JSON.stringify({ url: stripeSession.url }))
-    }
+    // //   return new NextResponse(JSON.stringify({ url: stripeSession.url }))
+    // }
 
     // const stripeSession = await stripe.checkout.sessions.create({
     //   success_url: settingsUrl,
