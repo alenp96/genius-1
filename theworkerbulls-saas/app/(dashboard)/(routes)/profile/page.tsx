@@ -34,6 +34,8 @@ const ProfilePage = () => {
       // console.log('has sub', hasSub)
       // console.log('customer', customer)
       // console.log('checkout link', checkoutLink)
+      SetLInk(_hasSub?.link)
+      SetSub(_hasSub?.sub)
       console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
       // console.log('has sub',hasSub)
     }
@@ -78,8 +80,8 @@ const ProfilePage = () => {
             Manage
           </Button>
           <Link
-              // href={String(checkoutLink)}
-       href={'/dashboard'}
+              href={String(link)}
+   
               
               className="font-medium text-base hover:underline"
             >
