@@ -36,6 +36,12 @@ const routes = [
     icon: MessageSquare,
     href: "/conversation",
     color: "text-violet-500",
+  },
+  {
+    label: "Subscriptions",
+    icon: MessageSquare,
+    href: "/profile",
+    color: "text-violet-500",
   }
 
 ];
