@@ -110,24 +110,27 @@ const ProfilePage = () => {
                   </Text>
                 </Stack>
               </Stack>
+              <Center>
 
-              <Link
-                //@ts-ignore
-                // as={'link'}
-                as={NextLink}
-                w={'full'}
-                mt={8}
-                border={'1px solid red'}
-                bg={'black'}
-                color={'white'}
-                href={String(link)}
-                rounded={'md'}
-                _hover={{
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'lg',
-                }}>
-                {sub ? 'Manage' : 'Subscribe'}
-              </Link>
+                <Link
+                  //@ts-ignore
+                  // as={'link'}
+                  as={NextLink}
+                  w={'full'}
+                  mt={8}
+                  padding={4}
+                  bg={'black'}
+                  color={'white'}
+                  href={String(link)}
+                  rounded={'md'}
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}>
+                  {sub ? 'Manage' : 'Subscribe'}
+                </Link>
+              </Center>
+
             </Box>
           </Box>
 
