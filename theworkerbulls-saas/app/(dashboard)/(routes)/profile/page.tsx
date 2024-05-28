@@ -27,7 +27,7 @@ const ProfilePage = () => {
   const [link, SetLInk] = useState()
   // const router = useRouter();
   const { user } = useUser();
-  console.log('user',user?.primaryEmailAddress?.emailAddress)
+  console.log('user',user)
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
@@ -66,7 +66,7 @@ const ProfilePage = () => {
             >
                {sub?'Manage':'Subscribe'} 
             </Link> */}
-              <Center py={6}>
+         
       <Box
         maxW={'270px'}
         w={'full'}
@@ -99,41 +99,43 @@ const ProfilePage = () => {
         <Box p={6}>
           <Stack spacing={0} align={'center'} mb={5}>
             <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-              John Doe
+           { user?.primaryEmailAddress?.emailAddress}
             </Text>
             <Text color={'gray.500'}>Frontend Developer</Text>
           </Stack>
 
           <Stack direction={'row'} justify={'center'} spacing={6}>
             <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
+            <Text fontWeight={600}>{sub?'Subscribed':'not subscribed'}</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
+                status
               </Text>
             </Stack>
             <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
+              <Text fontWeight={600}>{sub?'':'Free Plan'}</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
+                Plan
               </Text>
             </Stack>
           </Stack>
 
-          <Button
+          <Link
+          //@ts-ignore
             w={'full'}
             mt={8}
-            bg={useColorModeValue('#151f21', 'gray.900')}
+            bg={'black'}
             color={'white'}
+            href={String(link)}
             rounded={'md'}
             _hover={{
               transform: 'translateY(-2px)',
               boxShadow: 'lg',
             }}>
-            Follow
-          </Button>
+             {sub?'Manage':'Subscribe'} 
+          </Link>
         </Box>
       </Box>
-    </Center>
+ 
         </div>
 
       </div>
