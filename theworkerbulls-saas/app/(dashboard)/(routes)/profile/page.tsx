@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const [link, SetLInk] = useState()
   // const router = useRouter();
   const { user } = useUser();
-  console.log('user frontend ', user)
+ 
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
@@ -45,7 +45,7 @@ const ProfilePage = () => {
 
 
   }, [])
-
+  console.log('user frontend ', user)
   return (
     <div>
       <Heading
