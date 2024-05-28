@@ -115,9 +115,10 @@ const ProfilePage = () => {
                 // as={'link'}
                 w={'full'}
                 mt={8}
+                border={'1px solid red'}
                 bg={'black'}
                 color={'white'}
-                // href={String(link)}
+                href={String(link)}
                 rounded={'md'}
                 _hover={{
                   transform: 'translateY(-2px)',
