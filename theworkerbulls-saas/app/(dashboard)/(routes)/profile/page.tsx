@@ -110,13 +110,13 @@ const ProfilePage = () => {
                   </Text>
                 </Stack>
               </Stack>
-             {sub?(<>   <Stack spacing={0} align={'center'} mb={5}>
+              {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
                 <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-                 Subscription ends in 3 months 
+                  Subscription ends in 3 months
                 </Text>
                 <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
-              </Stack></>):(<></>)} 
-          
+              </Stack></>) : (<></>)}
+
               <Center>
 
                 <Link
@@ -125,7 +125,10 @@ const ProfilePage = () => {
                   as={NextLink}
                   w={'full'}
                   mt={8}
-                  padding={4}
+                  paddingX={4}
+
+
+                  paddingY={2}
                   bg={'black'}
                   color={'white'}
                   href={String(link)}
