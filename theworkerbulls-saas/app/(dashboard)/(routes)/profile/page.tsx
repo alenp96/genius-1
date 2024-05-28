@@ -27,14 +27,14 @@ const ProfilePage = () => {
   const [link, SetLInk] = useState()
   // const router = useRouter();
   const { user } = useUser();
-  console.log('user',user)
+  console.log('user', user)
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
-      const _hasSub =await hasSub.json()
+      const _hasSub = await hasSub.json()
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
-      console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
+      console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
     }
 
@@ -57,77 +57,77 @@ const ProfilePage = () => {
         <div>
 
 
-         
-      <Box
-        maxW={'270px'}
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        overflow={'hidden'}>
-        <Image
-          h={'120px'}
-          w={'full'}
-          src={
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-          }
-          objectFit={'cover'}
-        />
-        <Flex justify={'center'} mt={-12}>
-          <Avatar
-            size={'xl'}
-            src={
-             user?.imageUrl
-            }
-            //@ts-ignore
-            alt={'Author'}
-            css={{
-              border: '2px solid white',
-            }}
-          />
-        </Flex>
 
-        <Box p={6}>
-          <Stack spacing={0} align={'center'} mb={5}>
-            <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-            { user?.fullName}
-            </Text>
-            <Text color={'gray.500'}> { user?.primaryEmailAddress?.emailAddress}</Text>
-          </Stack>
-
-          <Stack direction={'row'} justify={'center'} spacing={6}>
-            <Stack spacing={0} align={'center'}>
-            <Text fontWeight={600}>status</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                {sub?'Subscribed':'not subscribed'}
-              </Text>
-            </Stack>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>{sub?'Premium':'Free Plan'}</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Plan
-              </Text>
-            </Stack>
-          </Stack>
-
-          <Button
-          //@ts-ignore
-          // as={'link'}
+          <Box
+            maxW={'270px'}
             w={'full'}
-            mt={8}
-            bg={'black'}
-            color={'white'}
-            // href={String(link)}
+            bg={useColorModeValue('white', 'gray.800')}
+            boxShadow={'2xl'}
             rounded={'md'}
-            _hover={{
-              transform: 'translateY(-2px)',
-              boxShadow: 'lg',
-            }}>
-             {sub?'Manage':'Subscribe'} 
-          </Button>
-        </Box>
-      </Box>
- 
+            overflow={'hidden'}>
+            <Image
+              h={'120px'}
+              w={'full'}
+              src={
+                'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+              }
+              objectFit={'cover'}
+            />
+            <Flex justify={'center'} mt={-12}>
+              <Avatar
+                size={'xl'}
+                src={
+                  user?.imageUrl
+                }
+                //@ts-ignore
+                alt={'Author'}
+                css={{
+                  border: '2px solid white',
+                }}
+              />
+            </Flex>
+
+            <Box p={6}>
+              <Stack spacing={0} align={'center'} mb={5}>
+                <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+                  {user?.fullName}
+                </Text>
+                <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
+              </Stack>
+
+              <Stack direction={'row'} justify={'center'} spacing={6}>
+                <Stack spacing={0} align={'center'}>
+                  <Text fontWeight={600}>status</Text>
+                  <Text fontSize={'sm'} color={'gray.500'}>
+                    {sub ? 'Subscribed' : 'not subscribed'}
+                  </Text>
+                </Stack>
+                <Stack spacing={0} align={'center'}>
+                  <Text fontWeight={600}>{sub ? 'Premium' : 'Free Plan'}</Text>
+                  <Text fontSize={'sm'} color={'gray.500'}>
+                    Plan
+                  </Text>
+                </Stack>
+              </Stack>
+
+              <Link
+                //@ts-ignore
+                // as={'link'}
+                w={'full'}
+                mt={8}
+                bg={'black'}
+                color={'white'}
+                // href={String(link)}
+                rounded={'md'}
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}>
+                {sub ? 'Manage' : 'Subscribe'}
+              </Link>
+            </Box>
+          </Box>
+
         </div>
 
       </div>
