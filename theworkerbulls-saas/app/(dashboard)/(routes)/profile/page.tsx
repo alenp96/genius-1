@@ -86,7 +86,7 @@ const ProfilePage = () => {
           <Avatar
             size={'xl'}
             src={
-              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+             user?.imageUrl
             }
             //@ts-ignore
             alt={'Author'}
@@ -99,28 +99,29 @@ const ProfilePage = () => {
         <Box p={6}>
           <Stack spacing={0} align={'center'} mb={5}>
             <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-           { user?.primaryEmailAddress?.emailAddress}
+            { user?.fullName}
             </Text>
-            <Text color={'gray.500'}>Frontend Developer</Text>
+            <Text color={'gray.500'}> { user?.primaryEmailAddress?.emailAddress}</Text>
           </Stack>
 
           <Stack direction={'row'} justify={'center'} spacing={6}>
             <Stack spacing={0} align={'center'}>
-            <Text fontWeight={600}>{sub?'Subscribed':'not subscribed'}</Text>
+            <Text fontWeight={600}>status</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
-                status
+                {sub?'Subscribed':'not subscribed'}
               </Text>
             </Stack>
             <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>{sub?'':'Free Plan'}</Text>
+              <Text fontWeight={600}>{sub?'Premium':'Free Plan'}</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
                 Plan
               </Text>
             </Stack>
           </Stack>
 
-          <Link
+          <Button
           //@ts-ignore
+          as={'link'}
             w={'full'}
             mt={8}
             bg={'black'}
@@ -132,7 +133,7 @@ const ProfilePage = () => {
               boxShadow: 'lg',
             }}>
              {sub?'Manage':'Subscribe'} 
-          </Link>
+          </Button>
         </Box>
       </Box>
  
