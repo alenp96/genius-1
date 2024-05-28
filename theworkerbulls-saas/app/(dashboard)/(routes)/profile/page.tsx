@@ -85,9 +85,9 @@ const ProfilePage = () => {
         <Flex justify={'center'} mt={-12}>
           <Avatar
             size={'xl'}
-            src={
-             user?.imageUrl
-            }
+            // src={
+            //  user?.imageUrl
+            // }
             //@ts-ignore
             alt={'Author'}
             css={{
@@ -99,7 +99,7 @@ const ProfilePage = () => {
         <Box p={6}>
           <Stack spacing={0} align={'center'} mb={5}>
             <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-            { user?.fullName}
+            {/* { user?.fullName} */}
             </Text>
             <Text color={'gray.500'}> { user?.primaryEmailAddress?.emailAddress}</Text>
           </Stack>
