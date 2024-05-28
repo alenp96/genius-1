@@ -110,6 +110,13 @@ const ProfilePage = () => {
                   </Text>
                 </Stack>
               </Stack>
+             {sub?(<>   <Stack spacing={0} align={'center'} mb={5}>
+                <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+                 Subscription ends in 3 months 
+                </Text>
+                <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
+              </Stack></>):(<></>)} 
+          
               <Center>
 
                 <Link
