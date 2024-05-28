@@ -62,6 +62,7 @@ export async function createCustomerIfNull(email:String) {
 
 
     if (!_user) {
+      console.log('no user ')
       const customer = await stripe.customers.create({
         email: String(email)
       })
