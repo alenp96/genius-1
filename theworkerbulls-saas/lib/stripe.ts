@@ -65,6 +65,7 @@ export async function createCustomerIfNull(email:String) {
       const customer = await stripe.customers.create({
         email: String(email)
       })
+      console.log('customer',customer,email)
 
 
       await prismadb.userSubscription.create({
