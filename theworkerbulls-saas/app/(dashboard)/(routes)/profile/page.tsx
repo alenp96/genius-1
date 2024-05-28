@@ -3,13 +3,14 @@ import { MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Heading } from "@/components/heading";
-
+import NextLink from 'next/link'
 import { auth, useUser } from "@clerk/nextjs";
-import Link from "next/link";
+// import Link from "next/link";
 
 import {
   // Heading,
   Avatar,
+  Link,
   Box,
   Center,
   Image,
@@ -113,6 +114,7 @@ const ProfilePage = () => {
               <Link
                 //@ts-ignore
                 // as={'link'}
+                as={NextLink}
                 w={'full'}
                 mt={8}
                 border={'1px solid red'}
