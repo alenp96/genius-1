@@ -50,15 +50,18 @@ export async function createCheckoutLink(customer: string) {
   return checkout.url;
 }
 export async function createCustomerIfNull(email:String) {
+  console.log('enter customer register',email)
   const { userId, user } = auth();
   // const {  user } = useUser();
 
   if (userId) {
+    console.log('user found')
 
     const _user = await prismadb.userSubscription.findUnique({
       //@ts-ignore
       where: { userId: userId },
     });
+    console.log('_user results',_user)
 
 
     if (!_user) {
@@ -66,6 +69,7 @@ export async function createCustomerIfNull(email:String) {
       const customer = await stripe.customers.create({
         email: String(email)
       })
+      const subscriptions = await stripe.customers.list()
       console.log('customer',customer,email)
 
 
