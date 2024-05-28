@@ -77,6 +77,10 @@ export async function createCustomerIfNull(email:String) {
         data: {
           userId: userId,
           stripeCustomerId: customer.id,
+          stripeSubscriptionId:null,
+          stripePriceId:null,
+          stripeCurrentPeriodEnd:null,
+
 
 
         },
