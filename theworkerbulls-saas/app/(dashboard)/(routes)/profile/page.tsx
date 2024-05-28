@@ -131,7 +131,7 @@ const ProfilePage = () => {
                   paddingY={2}
                   bg={'black'}
                   color={'white'}
-                  href={'https://buy.stripe.com/test_dR68yDaCI16ieGI9AA'}
+                  href={String(link)}
                   rounded={'md'}
                   _hover={{
                     transform: 'translateY(-2px)',
