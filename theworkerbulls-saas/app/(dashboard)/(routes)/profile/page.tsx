@@ -123,7 +123,7 @@ const ProfilePage = () => {
                   //@ts-ignore
                   // as={'link'}
                   as={NextLink}
-                  w={'full'}
+                  // w={'full'}
                   mt={8}
                   paddingX={4}
 
