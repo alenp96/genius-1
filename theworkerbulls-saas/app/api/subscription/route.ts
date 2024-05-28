@@ -21,7 +21,7 @@ export async function GET() {
     const sub = false;
     // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
     const checkoutLink = '/dashboard'
-    console.log('subs',sub1,customer)
+    console.log('subs ,customer-->',sub1,customer)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
     // }
