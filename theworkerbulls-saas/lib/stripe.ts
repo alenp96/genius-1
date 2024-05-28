@@ -40,7 +40,7 @@ export async function createCheckoutLink(customer: string) {
     payment_method_types: ["card"],
     line_items: [
       {
-        price: 'price_1PL7DdRot8TS07y6H1GyiXzK',
+        price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
         quantity: 1,
       },
     ],
