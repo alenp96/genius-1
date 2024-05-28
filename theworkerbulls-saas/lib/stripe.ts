@@ -61,7 +61,7 @@ export async function createCustomerIfNull(email:String) {
       //@ts-ignore
       where: { userId: userId },
     });
-    console.log('_user results',_user)
+    console.log('_user results->',_user)
 
 
     if (!_user) {
