@@ -56,16 +56,7 @@ const ProfilePage = () => {
       <div className="px-4 lg:px-8">
         <div>
 
-          {/* <Button className="col-span-12 lg:col-span-2 w-full" type="submit" size="icon">
-           {sub?'Manage':'Subscribe'} 
-          </Button> */}
-          {/* <Link
-              href={String(link)}
-   
-              className="col-span-12 lg:col-span-2 w-full" 
-            >
-               {sub?'Manage':'Subscribe'} 
-            </Link> */}
+
          
       <Box
         maxW={'270px'}
@@ -85,9 +76,9 @@ const ProfilePage = () => {
         <Flex justify={'center'} mt={-12}>
           <Avatar
             size={'xl'}
-            // src={
-            //  user?.imageUrl
-            // }
+            src={
+             user?.imageUrl
+            }
             //@ts-ignore
             alt={'Author'}
             css={{
@@ -99,7 +90,7 @@ const ProfilePage = () => {
         <Box p={6}>
           <Stack spacing={0} align={'center'} mb={5}>
             <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-            {/* { user?.fullName} */}
+            { user?.fullName}
             </Text>
             <Text color={'gray.500'}> { user?.primaryEmailAddress?.emailAddress}</Text>
           </Stack>
@@ -121,12 +112,12 @@ const ProfilePage = () => {
 
           <Button
           //@ts-ignore
-          as={'link'}
+          // as={'link'}
             w={'full'}
             mt={8}
             bg={'black'}
             color={'white'}
-            href={String(link)}
+            // href={String(link)}
             rounded={'md'}
             _hover={{
               transform: 'translateY(-2px)',
