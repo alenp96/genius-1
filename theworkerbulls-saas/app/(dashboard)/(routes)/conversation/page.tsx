@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ChatCompletionRequestMessage } from "openai";
@@ -27,14 +27,32 @@ const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
-
+  const [sub, SetSub] = useState()
+  const [customer, SetCustomer] = useState()
+  const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: ""
     }
   });
+  useEffect(() => {
+    const fetchData = async () => {
+      const hasSub = await fetch(`/api/subscription`)
+      const _hasSub =await hasSub.json()
+      SetLInk(_hasSub?.link)
+      SetSub(_hasSub?.sub)
+      console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
+      // console.log('has sub',hasSub)
+    }
+    if (!sub){
+      router.push('/dashboard')
+    }
+    // call the function
+    fetchData()
 
+
+  }, [])
   const isLoading = form.formState.isSubmitting;
   
   const onSubmit = async (values: z.infer<typeof formSchema>) => {

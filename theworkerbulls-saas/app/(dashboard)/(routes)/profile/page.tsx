@@ -3,15 +3,23 @@ import { MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Heading } from "@/components/heading";
-import { Button } from "@/components/ui/button";
+
 import { auth, useUser } from "@clerk/nextjs";
 import Link from "next/link";
+
 import {
-  // createCheckoutLink,
-  // CreateCustomerIfNull,
-  hasSubscription,
-  // stripe,
-} from "@/lib/stripe";
+  // Heading,
+  Avatar,
+  Box,
+  Center,
+  Image,
+  Flex,
+  Text,
+  Stack,
+  Button,
+  useColorModeValue,
+} from '@chakra-ui/react';
+
 
 const ProfilePage = () => {
   const [sub, SetSub] = useState()
@@ -23,17 +31,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
-      // const checkoutLink = await fetch(`/api/subscription1`, { cache: 'force-cache' })
-      // const creatCustomer = await fetch(`/api/subscription2`, { cache: 'force-cache' })
-      // const hasSub = await hasSubscription()
-      // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress))
-      // const checkoutLink = await createCheckoutLink(String(customer));
       const _hasSub =await hasSub.json()
-      // const _checkoutLink =await checkoutLink.json()
-      // const _creatCustomer =await creatCustomer.json()
-      // console.log('has sub', hasSub)
-      // console.log('customer', customer)
-      // console.log('checkout link', checkoutLink)
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
       console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
@@ -45,25 +43,7 @@ const ProfilePage = () => {
 
 
   }, [])
-  // const [isLoading, SetIsLoading] = useState(false)
-  // const customer = await CreateCustomerIfNull(String(user?.primaryEmailAddress));
-  // const hasSub = await hasSubscription();
-  // const checkoutLink = await createCheckoutLink(String(customer));
-  // let current_usage = 0;
-  // if (hasSub) {
-  //   const subscriptions = await stripe.subscriptions.list({
-  //     customer: String(customer),
-  //   });
-  //   const invoice = await stripe.invoices.retrieveUpcoming({
-  //     subscription: subscriptions.data.at(0)?.id,
-  //   });
 
-  //   current_usage = invoice.amount_due;
-  // }
-
-  // console.log('has sub',hasSub)
-  // console.log('customer',customer)
-  // console.log('checkout link',checkoutLink)
   return (
     <div>
       <Heading
@@ -76,17 +56,84 @@ const ProfilePage = () => {
       <div className="px-4 lg:px-8">
         <div>
 
-          <Button className="col-span-12 lg:col-span-2 w-full" type="submit" size="icon">
-            Manage
-          </Button>
-          <Link
+          {/* <Button className="col-span-12 lg:col-span-2 w-full" type="submit" size="icon">
+           {sub?'Manage':'Subscribe'} 
+          </Button> */}
+          {/* <Link
               href={String(link)}
    
-              
-              className="font-medium text-base hover:underline"
+              className="col-span-12 lg:col-span-2 w-full" 
             >
-              You have no subscription, checkout now!
-            </Link>
+               {sub?'Manage':'Subscribe'} 
+            </Link> */}
+              <Center py={6}>
+      <Box
+        maxW={'270px'}
+        w={'full'}
+        bg={useColorModeValue('white', 'gray.800')}
+        boxShadow={'2xl'}
+        rounded={'md'}
+        overflow={'hidden'}>
+        <Image
+          h={'120px'}
+          w={'full'}
+          src={
+            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+          }
+          objectFit={'cover'}
+        />
+        <Flex justify={'center'} mt={-12}>
+          <Avatar
+            size={'xl'}
+            src={
+              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+            }
+            //@ts-ignore
+            alt={'Author'}
+            css={{
+              border: '2px solid white',
+            }}
+          />
+        </Flex>
+
+        <Box p={6}>
+          <Stack spacing={0} align={'center'} mb={5}>
+            <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+              John Doe
+            </Text>
+            <Text color={'gray.500'}>Frontend Developer</Text>
+          </Stack>
+
+          <Stack direction={'row'} justify={'center'} spacing={6}>
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>23k</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Followers
+              </Text>
+            </Stack>
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>23k</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Followers
+              </Text>
+            </Stack>
+          </Stack>
+
+          <Button
+            w={'full'}
+            mt={8}
+            bg={useColorModeValue('#151f21', 'gray.900')}
+            color={'white'}
+            rounded={'md'}
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg',
+            }}>
+            Follow
+          </Button>
+        </Box>
+      </Box>
+    </Center>
         </div>
 
       </div>
