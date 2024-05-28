@@ -16,11 +16,11 @@ export async function GET() {
     
     const sub1 = await hasSubscription();
     const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    // const checkoutLink = await createCheckoutLink(String(customer));
+    const checkoutLink = await createCheckoutLink(String(customer));
     // console.log('subs',sub,customer,checkoutLink)
     const sub = false;
     // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    const checkoutLink = '/dashboard'
+  
     console.log('subs ,customer-->',sub1,customer)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
