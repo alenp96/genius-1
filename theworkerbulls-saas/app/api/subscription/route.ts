@@ -14,14 +14,14 @@ export async function GET() {
     const user = await currentUser();
     console.log('user-->',user?.emailAddresses[0].emailAddress)
     
-    // const sub = await hasSubscription();
+    const sub1 = await hasSubscription();
     // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
     // const checkoutLink = await createCheckoutLink(String(customer));
     // console.log('subs',sub,customer,checkoutLink)
     const sub = false;
     // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
     const checkoutLink = '/dashboard'
-    console.log('subs',sub,checkoutLink)
+    console.log('subs',sub1,checkoutLink)
     // if (!userId || !user) {
     //   return new NextResponse("Unauthorized", { status: 401 });
     // }
