@@ -138,13 +138,13 @@ const ProfilePage = () => {
                   mt={8}
                   paddingX={4}
 
-
+                  href={link? String(link):'#'}
                   paddingY={2}
                   //@ts-ignore
                   _disabled={true}
                   bg={'black'}
                   color={'white'}
-                  href={'#'}
+                  // href={'#'}
                   // href={'https://buy.stripe.com/test_dR68yDaCI16ieGI9AA'}
                   rounded={'md'}
                   _hover={{
