@@ -71,7 +71,7 @@ const ProfilePage = () => {
           <Box
             maxW={'270px'}
             w={'full'}
-            bg={useColorModeValue('white', 'gray.800')}
+            bg={'white'}
             boxShadow={'2xl'}
             rounded={'md'}
             overflow={'hidden'}>
