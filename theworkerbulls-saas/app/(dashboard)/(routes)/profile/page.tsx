@@ -1,6 +1,7 @@
 "use client";
 import { MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Spinner } from '@chakra-ui/react'
 import { useRouter } from "next/navigation";
 import { Heading } from "@/components/heading";
 import NextLink from 'next/link'
@@ -25,7 +26,9 @@ import {
 const ProfilePage = () => {
   const [sub, SetSub] = useState()
   const [customer, SetCustomer] = useState()
-  const [link, SetLInk] = useState()
+  const [link, SetLInk] = useState('')
+  const [loaded, SetDisabled] = useState(true)
+  
   // const router = useRouter();
   const { user } = useUser();
  
@@ -130,15 +133,17 @@ const ProfilePage = () => {
 
 
                   paddingY={2}
+                  //@ts-ignore
+                  _disabled={true}
                   bg={'black'}
                   color={'white'}
-                  href={String(link)}
+                  href={link? String(link):'#'}
                   // href={'https://buy.stripe.com/test_dR68yDaCI16ieGI9AA'}
                   rounded={'md'}
                   _hover={{
                     transform: 'translateY(-2px)',
                     boxShadow: 'lg',
-                  }}>
+                  }}>{link ?null:<Spinner />}
                   {sub ? 'Manage' : 'Subscribe'}
                 </Link>
               </Center>
