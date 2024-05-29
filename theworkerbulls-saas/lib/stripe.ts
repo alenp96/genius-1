@@ -20,14 +20,17 @@ export async function hasSubscription() {
     where: { userId: userId },
   });
 
-  if (subscription) {
+  if (subscription?.stripeSubscriptionId) {
+
+   
 
 
-    const subscriptions = await stripe.subscriptions.list({
-      customer: String(subscription.stripeCustomerId)
-    })
-    console.log('subscribers', subscriptions)
-    return subscriptions.data.length > 0;
+    // const subscriptions = await stripe.subscriptions.list({
+    //   customer: String(subscription.stripeCustomerId)
+    // })
+    // console.log('subscribers', subscriptions)
+    // return subscriptions.data.length > 0;
+    return true
   }
 
   return false;
