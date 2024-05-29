@@ -20,19 +20,19 @@ export async function hasSubscription() {
     where: { userId: userId },
   });
 
-  if (subscription?.stripeSubscriptionId) {
+//   if (subscription?.stripeSubscriptionId) {
 
    
-console.log('subscription valid')
+// console.log('subscription valid')
 
-    // const subscriptions = await stripe.subscriptions.list({
-    //   customer: String(subscription.stripeCustomerId)
-    // })
-    // console.log('subscribers', subscriptions)
-    // return subscriptions.data.length > 0;
-    return true
-  }else{return false}
-
+//     // const subscriptions = await stripe.subscriptions.list({
+//     //   customer: String(subscription.stripeCustomerId)
+//     // })
+//     // console.log('subscribers', subscriptions)
+//     // return subscriptions.data.length > 0;
+//     return true
+//   }else{return false}
+return subscription?.stripeSubscriptionId?true:false
   
 }
 export async function createCheckoutLink(customer: string) {
