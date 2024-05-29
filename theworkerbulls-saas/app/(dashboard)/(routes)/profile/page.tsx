@@ -131,7 +131,7 @@ const ProfilePage = () => {
                 <Text fontSize={'sm'} fontWeight={500}  color={'gray.500'} fontFamily={'body'}>
                    {new Date (expiry)?.toDateString()}
                 </Text>
-                <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
+             
               </Stack></>) : (<></>)}
 
               <Center>
