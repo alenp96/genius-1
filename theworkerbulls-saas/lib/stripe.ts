@@ -41,27 +41,27 @@ export async function createCheckoutLink(customer: string) {
     //@ts-ignore
     where: { userId: userId },
   });
-  const sub =await stripe.subscriptions.retrieve(
-     _user?.stripeSubscriptionId as string
+  const sub =await stripe.subscriptions.list(
+    //  _user?.stripeSubscriptionId as string
 
   )
   console.log('subscription retrieve',sub)
-  const checkout = await stripe.checkout.sessions.create({
-    success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
-    cancel_url: "https://genius-beta-lac.vercel.app/profile",
-    customer: customer,
-    payment_method_types: ["card"],
-    line_items: [
-      {
-        price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
-        quantity: 1,
-      },
-    ],
-    mode: "subscription"
-  })
+  // const checkout = await stripe.checkout.sessions.create({
+  //   success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
+  //   cancel_url: "https://genius-beta-lac.vercel.app/profile",
+  //   customer: customer,
+  //   payment_method_types: ["card"],
+  //   line_items: [
+  //     {
+  //       price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
+  //       quantity: 1,
+  //     },
+  //   ],
+  //   mode: "subscription"
+  // })
 
-  return checkout.url;
-  // return '/dashboard'
+  // return checkout.url;
+  return '/dashboard'
 }
 export async function createCustomerIfNull(email:String) {
   console.log('enter customer register',email)
