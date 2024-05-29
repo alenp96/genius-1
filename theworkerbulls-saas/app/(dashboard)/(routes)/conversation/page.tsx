@@ -16,6 +16,12 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
 import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
@@ -73,9 +79,7 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
-  if (!sub){
-    router.push('/dashboard')
-  }
+
   return ( 
     <div>
       <Heading
@@ -86,7 +90,7 @@ const ConversationPage = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="px-4 lg:px-8">
-        <div>
+        {sub?(<>        <div>
           <Form {...form}>
             <form 
               onSubmit={form.handleSubmit(onSubmit)} 
@@ -149,7 +153,12 @@ const ConversationPage = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div></>):(<>        <Alert status='success'>
+    <AlertIcon />
+    Please subscribe to view
+  </Alert></>)}
+        <></>
+
       </div>
     </div>
    );
