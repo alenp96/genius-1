@@ -31,8 +31,8 @@ export async function GET(req:any) {
         
         userId: userId as string,
       },
-      data: {
-        stripePriceId: subscription?.data[0]?.id as string,
+      data: { 
+        stripePriceId: subscription?.data[0]?.items.data[0].id as string,
         stripeSubscriptionId: subscription?.data[0]?.id as string,
         stripeCurrentPeriodEnd: new Date(
           subscription?.data[0]?.current_period_end * 1000
