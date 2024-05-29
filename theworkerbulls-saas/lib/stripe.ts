@@ -25,9 +25,9 @@ export async function hasSubscription() {
    
 // console.log('subscription valid')
 
-//     // const subscriptions = await stripe.subscriptions.list({
-//     //   customer: String(subscription.stripeCustomerId)
-//     // })
+    // const subscriptions = await stripe.subscriptions.retrieve({
+    //   customer: String(subscription?.stripeCustomerId)
+    // })
 //     // console.log('subscribers', subscriptions)
 //     // return subscriptions.data.length > 0;
 //     return true
@@ -41,32 +41,39 @@ export async function createCheckoutLink(customer: string,user:string) {
     //@ts-ignore
     where: { userId: user },
   });
+
+  
   const sub =await stripe.subscriptions.retrieve(
      _user?.stripeSubscriptionId as string
 
   )
-  console.log('subscription retrieve',user,_user,sub)
-  const update_subscription= await stripe.billingPortal.sessions.create({
-    customer: customer as string,
+  if(_user && sub ){
+    console.log('update sub')
+    // const update_subscription= await stripe.billingPortal.sessions.create({
+    //   customer: customer as string,
+    // })
+    // return update_subscription.url
+    return '/dashboard'
+  
+  }else{
+      const checkout = await stripe.checkout.sessions.create({
+    success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
+    cancel_url: "https://genius-beta-lac.vercel.app/profile",
+    customer: customer,
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
+        quantity: 1,
+      },
+    ],
+    mode: "subscription"
   })
-  console.log('portal',update_subscription)
 
-  // const checkout = await stripe.checkout.sessions.create({
-  //   success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
-  //   cancel_url: "https://genius-beta-lac.vercel.app/profile",
-  //   customer: customer,
-  //   payment_method_types: ["card"],
-  //   line_items: [
-  //     {
-  //       price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
-  //       quantity: 1,
-  //     },
-  //   ],
-  //   mode: "subscription"
-  // })
+  return checkout.url;
+  }
+  
 
-  // return checkout.url;
-  return '/dashboard'
 }
 export async function createCustomerIfNull(email:String) {
   console.log('enter customer register',email)
