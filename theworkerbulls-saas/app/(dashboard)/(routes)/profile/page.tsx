@@ -125,8 +125,11 @@ const ProfilePage = () => {
               </Stack>
           
               {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
-                <Text fontSize={'sm'} fontWeight={500} fontFamily={'body'}>
-                  Subscription ends in {new Date (expiry)?.toDateString()}
+                <Text fontSize={'sm'} fontWeight={600} fontFamily={'body'}>
+                  Subscription ends in 
+                </Text>
+                <Text fontSize={'sm'} fontWeight={500}  color={'gray.500'} fontFamily={'body'}>
+                   {new Date (expiry)?.toDateString()}
                 </Text>
                 <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
               </Stack></>) : (<></>)}
