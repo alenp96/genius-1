@@ -9,18 +9,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const settingsUrl = absoluteUrl("/settings");
 
-export async function GET(  req: NextApiRequest,
-  res: NextApiResponse) {
-  try {
-    const { userId,user } = auth();
-    console.log('request-->',req)
+export default async (request: NextApiRequest, response: NextApiResponse) => {
+  const {
+    query: { name, keyword },
+    method,
+  } = request;
+  console.log(name, keyword, method);
 
-
-    return new NextResponse(JSON.stringify({ state: 'url'}))
-
-    // return new NextResponse(JSON.stringify({ url: 'url' }))
-  } catch (error) {
-    console.log("[STRIPE_ERROR]", error);
-    return new NextResponse("Internal Error", { status: 500 });
-  }
+  // do nothing fancy and simply return a string concatenation
+  return response.status(200).json({ query: name + " " + keyword });
 };
