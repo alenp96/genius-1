@@ -4,42 +4,16 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
+import { NextApiRequest, NextApiResponse } from "next";
 
 
 const settingsUrl = absoluteUrl("/settings");
 
-export async function GET() {
+export async function GET(  req: NextApiRequest,
+  res: NextApiResponse) {
   try {
     const { userId,user } = auth();
-    // const { isLoaded, isSignedIn, user } = useUser();
-    // const user = await currentUser();
-
-    // if (!userId || !user) {
-      if (!userId ) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
-
-    const userSubscription = await prismadb.userSubscription.findUnique({
-      where: {
-        userId
-      }
-    })
-
-    if (userSubscription && userSubscription.stripeCustomerId) {
-      const subscriptions = await stripe.subscriptions.list({
-        customer: String(userSubscription.stripeCustomerId)
-    })
-    return userSubscription.stripeCustomerId
-      // const stripeSession = await stripe.billingPortal.sessions.create({
-      //   customer: userSubscription.stripeCustomerId,
-      //   return_url: settingsUrl,
-      // })
-
-    //   return new NextResponse(JSON.stringify({ url: stripeSession.url }))
-    }else{
-      console.log('email')
-    }
-
+    console.log('request-->',req)
 
 
     return new NextResponse(JSON.stringify({ state: 'url'}))

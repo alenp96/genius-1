@@ -22,6 +22,21 @@ const ProfilePage = () => {
   const searchParams = useSearchParams()
  
   const session_id = searchParams.get('session_id')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const hasSub = await fetch(`/api/subscription1?session_id=${session_id}`)
+      const _hasSub = await hasSub.json()
+      console.log('subscriptionbackend -->', _hasSub)
+      // console.log('has sub',hasSub)
+    }
+
+    // call the function
+
+    fetchData()
+
+
+  }, [])
   return (
     <div>
       <Heading
