@@ -15,12 +15,17 @@ export async function GET(req:any) {
  const session_id= search_params.get('session_id')
  console.log('session_id',session_id)
   try {
-    const { userId,user } = auth();
- 
+    const { userId } = auth();
+    const user = await prismadb.userSubscription.findUnique({
+      //@ts-ignore
+      where: { userId: userId },
+    });
 
-    const subscription = await stripe.subscriptions.list(
   
-    )
+    const subscription = await stripe.subscriptions.list({
+      customer: String(user?.stripeCustomerId)
+  })
+  console.log('subscription1 -->',subscription)
     await prismadb.userSubscription.update({
       where: {
         
