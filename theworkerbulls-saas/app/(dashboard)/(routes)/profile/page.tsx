@@ -50,8 +50,12 @@ const ProfilePage = () => {
 
   }, [])
   console.log('user frontend ', user)
+  if (loaded) {
+    return <Spinner />;
+}
   return (
     <div>
+    
       <Heading
         title="Profile"
         description="View subscription."
@@ -117,7 +121,7 @@ const ProfilePage = () => {
               
                 </Stack>
               </Stack>
-              {loaded?'loading...':'loaded true'}
+          
               {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
                 <Text fontSize={'sm'} fontWeight={500} fontFamily={'body'}>
                   Subscription ends in a month

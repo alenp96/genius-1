@@ -22,6 +22,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react'
 import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
@@ -34,6 +35,7 @@ const ConversationPage = () => {
   const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
   const [sub, SetSub] = useState()
+  const [loaded, SetDisabled] = useState(true)
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -48,6 +50,7 @@ const ConversationPage = () => {
       const _hasSub =await hasSub.json()
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
+      SetDisabled(false)
       console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
       // console.log('has sub',hasSub)
     }
@@ -79,6 +82,12 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
+  if (loaded) {
+    return <Spinner />;
+}
+  if (!loaded && !sub)  {
+    router.push('/profile');
+}
 
   return ( 
     <div>

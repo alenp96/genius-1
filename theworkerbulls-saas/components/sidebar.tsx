@@ -19,6 +19,7 @@ import {
   Bot,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { Spinner } from '@chakra-ui/react'
 import { cn } from "@/lib/utils";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
@@ -71,12 +72,15 @@ export const Sidebar = ({
   const [sub, SetSub] = useState()
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
+  const [loaded, SetDisabled] = useState(true)
+  
   useEffect(() => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
       const _hasSub = await hasSub.json()
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
+      SetDisabled(false)
       console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
     }
@@ -86,6 +90,9 @@ export const Sidebar = ({
 
 
   }, [])
+  if (loaded) {
+    return <Spinner />;
+}
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
