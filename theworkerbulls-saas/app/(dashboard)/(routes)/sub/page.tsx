@@ -1,4 +1,5 @@
 "use client";
+import { useSearchParams } from 'next/navigation'
 import { MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Spinner } from '@chakra-ui/react'
@@ -18,7 +19,9 @@ import {
 
 
 const ProfilePage = () => {
-
+  const searchParams = useSearchParams()
+ 
+  const session_id = searchParams.get('session_id')
   return (
     <div>
       <Heading
@@ -32,7 +35,7 @@ const ProfilePage = () => {
         <div>
         <Alert status='success'>
     <AlertIcon />
-    Subscription succesful!
+    Subscription succesful!{session_id}
   </Alert>
 
 
