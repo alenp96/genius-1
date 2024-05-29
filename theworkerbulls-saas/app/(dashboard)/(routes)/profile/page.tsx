@@ -108,22 +108,44 @@ const ProfilePage = () => {
                   </Text>
                 </Stack>
                 <Stack spacing={0} align={'center'}>
-                  <Text fontWeight={600}>{sub ? 'Premium' : 'Free Plan'}</Text>
-                  <Text fontSize={'sm'} color={'gray.500'}>
+                <Text fontSize={'sm'} color={'gray.500'}>
                     Plan
                   </Text>
+                  <Text fontWeight={600}>{sub ? 'Premium' : 'Free Plan'}</Text>
+              
                 </Stack>
               </Stack>
               {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
                 <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-                  Subscription ends in 3 months
+                  Subscription ends in a month
                 </Text>
                 <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
               </Stack></>) : (<></>)}
 
               <Center>
+                {sub?(                <Link
+                  //@ts-ignore
+                  // as={'link'}
+                  as={NextLink}
+                  // w={'full'}
+                  mt={8}
+                  paddingX={4}
 
-                <Link
+
+                  paddingY={2}
+                  //@ts-ignore
+                  _disabled={true}
+                  bg={'black'}
+                  color={'white'}
+                  href={'#'}
+                  // href={'https://buy.stripe.com/test_dR68yDaCI16ieGI9AA'}
+                  rounded={'md'}
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}>
+                 Manage
+                </Link>):(                <Link
                   //@ts-ignore
                   // as={'link'}
                   as={NextLink}
@@ -144,8 +166,9 @@ const ProfilePage = () => {
                     transform: 'translateY(-2px)',
                     boxShadow: 'lg',
                   }}>{link ?null:<Spinner />}
-                  {sub ? 'Manage' : 'Subscribe'}
-                </Link>
+                  Subscribe
+                </Link>)}
+
               </Center>
 
             </Box>
