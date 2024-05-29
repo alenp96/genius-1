@@ -34,7 +34,7 @@ export async function GET(req:any) {
         // ),
       },
     })
-    console.log('subscriptions',subscription)
+    console.log('subscriptions',subscription.data)
 
     return new NextResponse(JSON.stringify({ state: session_id}))
 

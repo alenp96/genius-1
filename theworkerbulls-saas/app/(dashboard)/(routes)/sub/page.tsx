@@ -50,7 +50,7 @@ const ProfilePage = () => {
         <div>
         <Alert status='success'>
     <AlertIcon />
-    Subscription succesful!{session_id}
+    Subscription succesful!
   </Alert>
 
 
