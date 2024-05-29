@@ -10,13 +10,16 @@ const settingsUrl = absoluteUrl("/settings");
 
 export async function GET(req:any) {
   console.log('request',req)
+  const url= new URL(req.url)
+  const search_params= new URLSearchParams(url.searchParams)
+ const session_id= search_params.get('session_id')
   try {
     const { userId,user } = auth();
  
 
 
 
-    return new NextResponse(JSON.stringify({ state: 'sessionid back'}))
+    return new NextResponse(JSON.stringify({ state: session_id}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
