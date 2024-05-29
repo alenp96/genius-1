@@ -41,11 +41,11 @@ export async function createCheckoutLink(customer: string,user:string) {
     //@ts-ignore
     where: { userId: user },
   });
-  const sub =await stripe.subscriptions.list(
-    //  _user?.stripeSubscriptionId as string
+  const sub =await stripe.subscriptions.retrieve(
+     _user?.stripeSubscriptionId as string
 
   )
-  console.log('subscription retrieve',user,_user,userId)
+  console.log('subscription retrieve',user,_user,sub)
   // const checkout = await stripe.checkout.sessions.create({
   //   success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
   //   cancel_url: "https://genius-beta-lac.vercel.app/profile",
