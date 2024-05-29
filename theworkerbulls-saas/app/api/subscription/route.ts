@@ -16,7 +16,7 @@ export async function GET() {
     
     const sub1 = await hasSubscription();
     const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    const checkoutLink = await createCheckoutLink(String(customer),userId);
+    const checkoutLink = await createCheckoutLink(String(customer),String(userId));
     // console.log('subs',sub,customer,checkoutLink)
     const sub = false;
     // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
