@@ -39,7 +39,7 @@ export async function GET(req:any) {
         ),
       },
     })
-    console.log('subscriptions',subscription.data[0].id)
+    console.log('subscriptions',subscription.data[0])
 
     return new NextResponse(JSON.stringify({ state: subscription?.data[0]?.id}))
 
