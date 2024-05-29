@@ -23,7 +23,7 @@ export async function hasSubscription() {
   if (subscription?.stripeSubscriptionId) {
 
    
-
+console.log('subscription valid')
 
     // const subscriptions = await stripe.subscriptions.list({
     //   customer: String(subscription.stripeCustomerId)
@@ -31,9 +31,9 @@ export async function hasSubscription() {
     // console.log('subscribers', subscriptions)
     // return subscriptions.data.length > 0;
     return true
-  }
+  }else{return false}
 
-  return false;
+  
 }
 export async function createCheckoutLink(customer: string) {
   const checkout = await stripe.checkout.sessions.create({
