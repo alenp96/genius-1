@@ -13,11 +13,28 @@ export async function GET(req:any) {
   const url= new URL(req.url)
   const search_params= new URLSearchParams(url.searchParams)
  const session_id= search_params.get('session_id')
+ console.log('session_id',session_id)
   try {
     const { userId,user } = auth();
  
 
-
+    const subscription = await stripe.subscriptions.list(
+  
+    )
+    await prismadb.userSubscription.update({
+      where: {
+        
+        userId: userId as string,
+      },
+      data: {
+        // stripePriceId: subscription.items.data[0].price.id,
+        stripeSubscriptionId: session_id as string,
+        // stripeCurrentPeriodEnd: new Date(
+        //   subscription.current_period_end * 1000
+        // ),
+      },
+    })
+    console.log('subscriptions',subscription)
 
     return new NextResponse(JSON.stringify({ state: session_id}))
 
