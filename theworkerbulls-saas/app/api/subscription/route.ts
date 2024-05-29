@@ -73,7 +73,7 @@ export async function GET() {
     //   },
     // })
 
-    return new NextResponse(JSON.stringify({ sub: sub,link:checkoutLink}))
+    return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
