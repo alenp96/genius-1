@@ -27,6 +27,7 @@ const ProfilePage = () => {
   const [sub, SetSub] = useState()
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState('')
+  const [expiry, SetExpiry] = useState('')
   const [loaded, SetDisabled] = useState(true)
   
   // const router = useRouter();
@@ -38,6 +39,7 @@ const ProfilePage = () => {
       const _hasSub = await hasSub.json()
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
+      SetExpiry(_hasSub?.exp)
       SetDisabled(false)
       console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
@@ -124,7 +126,7 @@ const ProfilePage = () => {
           
               {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
                 <Text fontSize={'sm'} fontWeight={500} fontFamily={'body'}>
-                  Subscription ends in a month
+                  Subscription ends in {expiry}
                 </Text>
                 <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
               </Stack></>) : (<></>)}

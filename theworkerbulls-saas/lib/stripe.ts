@@ -12,7 +12,28 @@ export const stripe = new Stripe(process.env.STRIPE_API_KEY!, {
   typescript: true,
 });
 
+export async function expiry() {
+  const { userId ,user} = auth();
+  const subscription = await prisma.userSubscription.findUnique({
+    //@ts-ignore
+    where: { userId: userId },
+  });
+ console.log('user sub',subscription)
+//   if (subscription?.stripeSubscriptionId) {
 
+   
+// console.log('subscription valid')
+
+    // const subscriptions = await stripe.subscriptions.retrieve({
+    //   customer: String(subscription?.stripeCustomerId)
+    // })
+//     // console.log('subscribers', subscriptions)
+//     // return subscriptions.data.length > 0;
+//     return true
+//   }else{return false}
+return subscription?.stripeCurrentPeriodEnd
+  
+}
 export async function hasSubscription() {
   const { userId ,user} = auth();
   const subscription = await prisma.userSubscription.findUnique({
