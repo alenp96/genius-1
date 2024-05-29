@@ -34,8 +34,8 @@ export async function hasSubscription() {
 }
 export async function createCheckoutLink(customer: string) {
   const checkout = await stripe.checkout.sessions.create({
-    success_url: "https://genius-beta-lac.vercel.app/profile/profile?success=true",
-    cancel_url: "https://genius-beta-lac.vercel.app/profile?success=true",
+    success_url: "https://genius-beta-lac.vercel.app/profile/",
+    cancel_url: "https://genius-beta-lac.vercel.app/profile",
     customer: customer,
     payment_method_types: ["card"],
     line_items: [
