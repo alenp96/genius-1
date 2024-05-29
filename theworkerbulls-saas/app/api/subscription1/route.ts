@@ -32,16 +32,16 @@ export async function GET(req:any) {
         userId: userId as string,
       },
       data: {
-        // stripePriceId: subscription.items.data[0].price.id,
-        stripeSubscriptionId: session_id as string,
-        // stripeCurrentPeriodEnd: new Date(
-        //   subscription.current_period_end * 1000
-        // ),
+        stripePriceId: subscription?.data[0]?.id as string,
+        stripeSubscriptionId: subscription?.data[0]?.id as string,
+        stripeCurrentPeriodEnd: new Date(
+          subscription?.data[0]?.current_period_end * 1000
+        ),
       },
     })
-    console.log('subscriptions',subscription.data)
+    console.log('subscriptions',subscription.data[0].id)
 
-    return new NextResponse(JSON.stringify({ state: session_id}))
+    return new NextResponse(JSON.stringify({ state: subscription?.data[0]?.id}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
