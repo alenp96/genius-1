@@ -45,9 +45,7 @@ const ConversationPage = () => {
       console.log('in useeffect',_hasSub?.link,_hasSub?.sub)
       // console.log('has sub',hasSub)
     }
-    if (!sub){
-      router.push('/dashboard')
-    }
+
     // call the function
     fetchData()
 
@@ -75,7 +73,9 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
-
+  if (!sub){
+    router.push('/dashboard')
+  }
   return ( 
     <div>
       <Heading
