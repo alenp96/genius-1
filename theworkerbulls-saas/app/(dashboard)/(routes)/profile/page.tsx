@@ -38,6 +38,7 @@ const ProfilePage = () => {
       const _hasSub = await hasSub.json()
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
+      SetDisabled(false)
       console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
     }
@@ -108,15 +109,17 @@ const ProfilePage = () => {
                   </Text>
                 </Stack>
                 <Stack spacing={0} align={'center'}>
+                <Text fontWeight={600}>  Plan</Text>
                 <Text fontSize={'sm'} color={'gray.500'}>
-                    Plan
+                {sub ? 'Premium' : 'Free Plan'}
                   </Text>
-                  <Text fontWeight={600}>{sub ? 'Premium' : 'Free Plan'}</Text>
+                  
               
                 </Stack>
               </Stack>
+              {loaded?'loading...':'loaded true'}
               {sub ? (<>   <Stack spacing={0} align={'center'} mb={5}>
-                <Text fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+                <Text fontSize={'sm'} fontWeight={500} fontFamily={'body'}>
                   Subscription ends in a month
                 </Text>
                 <Text color={'gray.500'}> {user?.primaryEmailAddress?.emailAddress}</Text>
