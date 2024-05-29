@@ -46,6 +46,11 @@ export async function createCheckoutLink(customer: string,user:string) {
 
   )
   console.log('subscription retrieve',user,_user,sub)
+  const update_subscription= await stripe.billingPortal.sessions.create({
+    customer: customer as string,
+  })
+  console.log('portal',update_subscription)
+
   // const checkout = await stripe.checkout.sessions.create({
   //   success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
   //   cancel_url: "https://genius-beta-lac.vercel.app/profile",
