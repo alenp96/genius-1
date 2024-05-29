@@ -19,7 +19,7 @@ export async function hasSubscription() {
     //@ts-ignore
     where: { userId: userId },
   });
-
+ console.log('user sub',subscription)
 //   if (subscription?.stripeSubscriptionId) {
 
    
