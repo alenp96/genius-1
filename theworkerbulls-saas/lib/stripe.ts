@@ -37,15 +37,15 @@ return subscription?.stripeSubscriptionId?true:false
 }
 export async function createCheckoutLink(customer: string) {
   const { userId, user } = auth();
-  const _user = await prismadb.userSubscription.findUnique({
-    //@ts-ignore
-    where: { userId: userId },
-  });
-  const sub =await stripe.subscriptions.retrieve(
-     _user?.stripeSubscriptionId as string
+  // const _user = await prismadb.userSubscription.findUnique({
+  //   //@ts-ignore
+  //   where: { userId: userId },
+  // });
+  // const sub =await stripe.subscriptions.retrieve(
+  //    _user?.stripeSubscriptionId as string
 
-  )
-  console.log('subscription retrieve',sub)
+  // )
+  // console.log('subscription retrieve',sub)
   const checkout = await stripe.checkout.sessions.create({
     success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
     cancel_url: "https://genius-beta-lac.vercel.app/profile",
