@@ -22,27 +22,26 @@ export async function GET(req:any) {
     });
 
   
-    const subscription = await stripe.subscriptions.retrieve(
+    const subscription = await stripe.subscriptions.list(
     
-     String(user?.stripeCustomerId)
   )
-  console.log('subscription1 -->',subscription.id)
+  console.log('subscription1 -->',subscription)
     await prismadb.userSubscription.update({
       where: {
         
         userId: userId as string,
       },
       data: { 
-        stripePriceId: subscription?.items.data[0].id as string,
-        stripeSubscriptionId: subscription?.id as string,
-        stripeCurrentPeriodEnd: new Date(
-          subscription?.current_period_end * 1000
-        ),
+        // stripePriceId: subscription?.items.data[0].id as string,
+        stripeSubscriptionId: session_id as string,
+        // stripeCurrentPeriodEnd: new Date(
+        //   subscription?.current_period_end * 1000
+        // ),
       },
     })
     console.log('subscriptions',subscription)
 
-    return new NextResponse(JSON.stringify({ state: subscription?.id}))
+    return new NextResponse(JSON.stringify({ state: session_id}))
 
     // return new NextResponse(JSON.stringify({ url: 'url' }))
   } catch (error) {
