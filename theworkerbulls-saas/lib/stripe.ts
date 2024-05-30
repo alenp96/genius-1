@@ -64,9 +64,10 @@ export async function createCheckoutLink(customer: string,user:string) {
  
   //  )
     console.log('update sub')
-    // const update_subscription= await stripe.billingPortal.sessions.create({
-    //   customer: customer as string,
-    // })
+    const update_subscription= await stripe.billingPortal.sessions.create({
+      customer: customer as string,
+    })
+    console.log('billing',update_subscription,update_subscription?.url)
     // return update_subscription.url
     return '/dashboard'
   
