@@ -129,7 +129,7 @@ const ProfilePage = () => {
                   Subscription ends in 
                 </Text>
                 <Text fontSize={'sm'} fontWeight={500}  color={'gray.500'} fontFamily={'body'}>
-                   {new Date (expiry)?.toDateString()}
+                  {expiry? new Date (expiry)?.toDateString():' April 30 2024'} {}
                 </Text>
              
               </Stack></>) : (<></>)}
