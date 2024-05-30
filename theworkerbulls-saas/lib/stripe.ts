@@ -59,10 +59,10 @@ export async function createCheckoutLink(customer: string,user:string) {
   
 
   if(_user?.stripeSubscriptionId ){
-    const sub =await stripe.subscriptions.retrieve(
-      _user?.stripeSubscriptionId as string
+  //   const sub =await stripe.subscriptions.retrieve(
+  //     _user?.stripeSubscriptionId as string
  
-   )
+  //  )
     console.log('update sub')
     // const update_subscription= await stripe.billingPortal.sessions.create({
     //   customer: customer as string,
