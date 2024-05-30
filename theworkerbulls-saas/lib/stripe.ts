@@ -58,7 +58,7 @@ export async function createCheckoutLink(customer: string,user:string) {
 
   
 
-  if(_user  ){
+  if(_user?.stripeSubscriptionId ){
     const sub =await stripe.subscriptions.retrieve(
       _user?.stripeSubscriptionId as string
  
