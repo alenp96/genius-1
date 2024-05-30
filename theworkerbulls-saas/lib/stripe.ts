@@ -41,19 +41,12 @@ export async function hasSubscription() {
     where: { userId: userId },
   });
  console.log('user sub',subscription)
-//   if (subscription?.stripeSubscriptionId) {
+ if(subscription?.stripeSubscriptionId){
+  return true
+ }else{
+  return false
+ }
 
-   
-// console.log('subscription valid')
-
-    // const subscriptions = await stripe.subscriptions.retrieve({
-    //   customer: String(subscription?.stripeCustomerId)
-    // })
-//     // console.log('subscribers', subscriptions)
-//     // return subscriptions.data.length > 0;
-//     return true
-//   }else{return false}
-return subscription?.stripeSubscriptionId?true:false
   
 }
 export async function createCheckoutLink(customer: string,user:string) {
