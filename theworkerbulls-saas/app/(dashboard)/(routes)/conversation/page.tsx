@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import {
+  Center,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -33,7 +34,7 @@ import { formSchema } from "./constants";
 const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [customer, SetCustomer] = useState()
@@ -83,14 +84,29 @@ const ConversationPage = () => {
     }
   }
   if (loaded) {
-    return <Spinner />;
+    return( 
+      <>
+      <Center>
+      <Spinner
+    thickness='4px'
+    speed='0.65s'
+    emptyColor='gray.200'
+    color='blue.500'
+    size='xl'
+  />;
+      </Center>
+
+      
+      </>
+    
+  )
 }
   if (!loaded && !sub)  {
     router.push('/profile');
 }
 
   return ( 
-    <div>
+    <div className="mt-6">
       <Heading
         title="Conversation"
         description="Our most advanced conversation model."
@@ -132,7 +148,7 @@ const ConversationPage = () => {
                 )}
               />
               <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
-                Generate
+                Chat
               </Button>
             </form>
           </Form>
