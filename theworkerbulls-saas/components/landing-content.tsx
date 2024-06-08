@@ -1,55 +1,152 @@
-"use client";
+'use client'
+import { ReactNode } from 'react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  Container,
+  Avatar,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+const Testimonial = ({ children }: { children: ReactNode }) => {
+  return <Box>{children}</Box>;
+};
 
-const testimonials = [
-  {
-    name: "Joel",
-    avatar: "J",
-    title: "Software Engineer",
-    description: "This is the best application I've ever used!",
-  },
-  {
-    name: "Antonio",
-    avatar: "A",
-    title: "Designer",
-    description: "I use this daily for generating new photos!",
-  },
-  {
-    name: "Mark",
-    avatar: "M",
-    title: "CEO",
-    description: "This app has changed my life, cannot imagine working without it!",
-  },
-  {
-    name: "Mary",
-    avatar: "M",
-    title: "CFO",
-    description: "The best in class, definitely worth the premium subscription!",
-  },
-];
-
-export const LandingContent = () => {
+const TestimonialContent = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="px-10 pb-20">
-      <h2 className="text-center text-4xl text-white font-extrabold mb-10">Testimonials</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {testimonials.map((item) => (
-          <Card key={item.description} className="bg-[#192339] border-none text-white">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-x-2">
-                <div>
-                  <p className="text-lg">{item.name}</p>
-                  <p className="text-zinc-400 text-sm">{item.title}</p>
-                </div>
-              </CardTitle>
-              <CardContent className="pt-4 px-0">
-                {item.description}
-              </CardContent>
-            </CardHeader>
-          </Card>
-        ))}
-      </div>
-    </div>
-  )
+    <Stack
+      bg={useColorModeValue('white', 'gray.800')}
+      boxShadow={'lg'}
+      p={8}
+      rounded={'xl'}
+      align={'center'}
+      pos={'relative'}
+      _after={{
+        content: `""`,
+        w: 0,
+        h: 0,
+        borderLeft: 'solid transparent',
+        borderLeftWidth: 16,
+        borderRight: 'solid transparent',
+        borderRightWidth: 16,
+        borderTop: 'solid',
+        borderTopWidth: 16,
+        borderTopColor: useColorModeValue('white', 'gray.800'),
+        pos: 'absolute',
+        bottom: '-16px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }}>
+      {children}
+    </Stack>
+  );
+};
+
+const TestimonialHeading = ({ children }: { children: ReactNode }) => {
+  return (
+    <Heading as={'h3'} fontSize={'xl'}>
+      {children}
+    </Heading>
+  );
+};
+
+const TestimonialText = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text
+      textAlign={'center'}
+      color={useColorModeValue('gray.600', 'gray.400')}
+      fontSize={'sm'}>
+      {children}
+    </Text>
+  );
+};
+
+const TestimonialAvatar = ({
+  src,
+  name,
+  title,
+}: {
+  src: string;
+  name: string;
+  title: string;
+}) => {
+  return (
+    <Flex align={'center'} mt={8} direction={'column'}>
+      <Avatar src={src} mb={2} />
+      <Stack spacing={-1} align={'center'}>
+        <Text  color={'white'} fontWeight={600}>{name}</Text>
+        <Text fontSize={'sm'} color={'white'}>
+          {title}
+        </Text>
+      </Stack>
+    </Flex>
+  );
+};
+
+export default function LandingContent() {
+  return (
+    <Box >
+      <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
+        <Stack spacing={0} align={'center'}>
+          <Heading color={'white'}>Our Clients Speak</Heading>
+          <Text color={'white'}>We have been working with clients around the world</Text>
+        </Stack>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          spacing={{ base: 10, md: 4, lg: 10 }}>
+          <Testimonial>
+            <TestimonialContent>
+              <TestimonialHeading>Efficient Collaborating</TestimonialHeading>
+              <TestimonialText>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                neque sed imperdiet nibh lectus feugiat nunc sem.
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
+              }
+              name={'Jane Cooper'}
+              title={'CEO at ABC Corporation'}
+            />
+          </Testimonial>
+          <Testimonial>
+            <TestimonialContent>
+              <TestimonialHeading>Intuitive Design</TestimonialHeading>
+              <TestimonialText>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                neque sed imperdiet nibh lectus feugiat nunc sem.
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
+              }
+              name={'Jane Cooper'}
+              title={'CEO at ABC Corporation'}
+            />
+          </Testimonial>
+          <Testimonial>
+            <TestimonialContent>
+              <TestimonialHeading>Mindblowing Service</TestimonialHeading>
+              <TestimonialText>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                neque sed imperdiet nibh lectus feugiat nunc sem.
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
+              }
+              name={'Jane Cooper'}
+              title={'CEO at ABC Corporation'}
+            />
+          </Testimonial>
+        </Stack>
+      </Container>
+    </Box>
+  );
 }
