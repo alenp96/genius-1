@@ -34,7 +34,7 @@ import { formSchema } from "./constants";
 const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   // const [message, setMessage] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
