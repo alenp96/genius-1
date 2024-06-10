@@ -5,10 +5,16 @@ import {
   Flex,
   Heading,
   Text,
+  Center,
   Stack,
   Container,
   Avatar,
   useColorModeValue,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react';
 
 const Testimonial = ({ children }: { children: ReactNode }) => {
@@ -77,7 +83,7 @@ const TestimonialAvatar = ({
     <Flex align={'center'} mt={8} direction={'column'}>
       <Avatar src={src} mb={2} />
       <Stack spacing={-1} align={'center'}>
-        <Text  color={'white'} fontWeight={600}>{name}</Text>
+        <Text color={'white'} fontWeight={600}>{name}</Text>
         <Text fontSize={'sm'} color={'white'}>
           {title}
         </Text>
@@ -91,60 +97,103 @@ export default function LandingContent() {
     <Box >
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
         <Stack spacing={0} align={'center'}>
-          <Heading color={'white'}>Our Clients Speak</Heading>
-          <Text color={'white'}>We have been working with clients around the world</Text>
+          <Heading color={'white'}>Stop Paying $1000s for Breakup Coaches.</Heading>
+          <Text color={'white'}>Why spend a fortune on breakup coaches when AIBreakupAdvisor can provide expert-like guidance at a fraction of the price? Our AI chatbot is designed to support you through your breakup with personalised advice and emotional support, available anytime you need it.</Text>
         </Stack>
+        <Stack spacing={0} align={'center'}>
+          <Heading color={'white'}>Sometimes You Just Need a Chat…</Heading>
+          <Text color={'white'}>Breakups are hard. AIBreakupAdvisor is here to help you through every step of the journey. Our AI is trained to provide personalized advice, emotional support, and practical tips to help you move forward. Whether you're feeling lost, overwhelmed, or just need someone to talk to, AIBreakupAdvisor is always available to listen and offer guidance.</Text>
+        </Stack>
+
         <Stack
-          direction={{ base: 'column', md: 'row' }}
+          // direction={{ base: 'column', md: 'row' }}
           spacing={{ base: 10, md: 4, lg: 10 }}>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Efficient Collaborating</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
-              }
-              name={'Jane Cooper'}
-              title={'CEO at ABC Corporation'}
-            />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Intuitive Design</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
-              }
-              name={'Jane Cooper'}
-              title={'CEO at ABC Corporation'}
-            />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Mindblowing Service</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
-              }
-              name={'Jane Cooper'}
-              title={'CEO at ABC Corporation'}
-            />
-          </Testimonial>
+            <Center>
+            <Heading color={'white'}>FAQs</Heading>
+            </Center>
+        
+          <Accordion defaultIndex={[0]} allowMultiple>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box color={'white'} as='span' flex='1' textAlign='left'>
+                    What is AIBreakupAdvisor?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                AIBreakupAdvisor is an AI-powered chatbot designed to help individuals navigate the emotional and practical challenges of breakups. Our AI provides personalized advice and support, drawing on expert knowledge to guide you through this difficult time.
+              </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as='span' color={'white'} flex='1' textAlign='left'>
+                    How does AIBreakupAdvisor work?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                Sign up for one of our affordable subscription plans and share your breakup story with our AI. You will receive instant, tailored advice and support. The AI uses advanced algorithms to understand your unique situation and provide relevant tips and guidance to help you move forward. Our subscription plans offer comprehensive support to ensure you receive the help you need.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as='span' color={'white'} flex='1' textAlign='left'>
+                    How can AIBreakupAdvisor help me?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                Our AI offers emotional support, practical tips, and expert-backed advice to help you cope with and recover from a breakup. Whether you need help processing your emotions, finding ways to move on, or seeking motivation to heal, AIBreakupAdvisor is here for you.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as='span' color={'white'} flex='1' textAlign='left'>
+                    Is the advice from AIBreakupAdvisor reliable?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                Yes, our AI is trained on expert data and uses the latest research in psychology to provide reliable and effective advice. While the AI cannot replace professional therapy, it offers valuable support and guidance tailored to your specific situation.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as='span' color={'white'} flex='1' textAlign='left'>
+                    Can I use AIBreakupAdvisor anytime?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                Absolutely. AIBreakupAdvisor is available 24/7, so you can access support whenever you need it. Whether it's late at night or early in the morning, our AI is here to help you through your breakup.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as='span' color={'white'} flex='1' textAlign='left'>
+                    What makes AIBreakupAdvisor different from other breakup support services?
+
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel color={'white'} pb={4}>
+                AIBreakupAdvisor combines the expertise of relationship professionals with the convenience of AI technology. Unlike traditional coaches or therapists, our AI is available around the clock and offers affordable, personalized support tailored to your needs.
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
         </Stack>
       </Container>
     </Box>

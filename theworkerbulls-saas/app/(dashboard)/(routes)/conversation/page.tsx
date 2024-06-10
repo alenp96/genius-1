@@ -34,7 +34,8 @@ import { formSchema } from "./constants";
 const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
+  // const [message, setMessage] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [customer, SetCustomer] = useState()
@@ -67,6 +68,7 @@ const ConversationPage = () => {
     try {
       const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
       const newMessages = [...messages, userMessage];
+      // const newMessages = [...messages, userMessage];
       
       const response = await axios.post('/api/conversation', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
