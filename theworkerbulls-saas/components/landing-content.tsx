@@ -102,7 +102,7 @@ export default function LandingContent() {
         </Stack>
         <Stack spacing={0} align={'center'}>
           <Heading color={'white'}>Sometimes You Just Need a Chat…</Heading>
-          <Text color={'white'}>Breakups are hard. AIBreakupAdvisor is here to help you through every step of the journey. Our AI is trained to provide personalized advice, emotional support, and practical tips to help you move forward. Whether you're feeling lost, overwhelmed, or just need someone to talk to, AIBreakupAdvisor is always available to listen and offer guidance.</Text>
+          <Text color={'white'}>Breakups are hard. AIBreakupAdvisor is here to help you through every step of the journey. Our AI is trained to provide personalized advice, emotional support, and practical tips to help you move forward. Whether youre feeling lost, overwhelmed, or just need someone to talk to, AIBreakupAdvisor is always available to listen and offer guidance.</Text>
         </Stack>
 
         <Stack
@@ -176,7 +176,7 @@ export default function LandingContent() {
                 </AccordionButton>
               </h2>
               <AccordionPanel color={'white'} pb={4}>
-                Absolutely. AIBreakupAdvisor is available 24/7, so you can access support whenever you need it. Whether it's late at night or early in the morning, our AI is here to help you through your breakup.
+                Absolutely. AIBreakupAdvisor is available 24/7, so you can access support whenever you need it. Whether its late at night or early in the morning, our AI is here to help you through your breakup.
               </AccordionPanel>
             </AccordionItem>
             <AccordionItem>
