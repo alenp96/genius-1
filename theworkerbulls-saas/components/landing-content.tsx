@@ -5,6 +5,14 @@ import {
   Flex,
   Heading,
   Text,
+  
+  HStack,
+ 
+  VStack,
+  List,
+  ListItem,
+  ListIcon,
+  Button,
   Center,
   Stack,
   Container,
@@ -16,7 +24,21 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from '@chakra-ui/react';
+import { FaCheckCircle } from 'react-icons/fa';
 
+function PriceWrapper({ children }: { children: ReactNode }) {
+  return (
+    <Box
+      mb={4}
+      shadow="base"
+      borderWidth="1px"
+      alignSelf={{ base: 'center', lg: 'flex-start' }}
+      borderColor={useColorModeValue('gray.200', 'gray.500')}
+      borderRadius={'xl'}>
+      {children}
+    </Box>
+  );
+}
 const Testimonial = ({ children }: { children: ReactNode }) => {
   return <Box>{children}</Box>;
 };
@@ -195,6 +217,110 @@ export default function LandingContent() {
             </AccordionItem>
           </Accordion>
         </Stack>
+<Stack>
+<Box py={12}>
+      <VStack spacing={2} textAlign="center">
+        <Heading  color={'white'} as="h1" fontSize="4xl">
+          Pricing
+        </Heading>
+        <Text fontSize="lg" color={'gray.500'}>
+        Plans that fit your need
+        </Text>
+      </VStack>
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        textAlign="center"
+        justify="center"
+        spacing={{ base: 4, lg: 10 }}
+        py={10}>
+        <PriceWrapper>
+          <Box py={4} px={12}>
+            <Text  color={'white'} fontWeight="500" fontSize="2xl">
+            Weekly
+            </Text>
+            <HStack justifyContent="center">
+              <Text  color={'white'} fontSize="3xl" fontWeight="600">
+                $
+              </Text>
+              <Text   color={'white'}fontSize="5xl" fontWeight="900">
+                5
+              </Text>
+              <Text fontSize="3xl" color="gray.500">
+                /week
+              </Text>
+            </HStack>
+          </Box>
+          <VStack
+            // bg={useColorModeValue('gray.50', 'gray.700')}
+            py={4}
+            borderBottomRadius={'xl'}>
+            <List spacing={3} textAlign="start" px={12}>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                24/7 Availability
+              </ListItem>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                Personalized Advice
+              </ListItem>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                Expert-Backed Tips
+              </ListItem>
+            </List>
+            <Box w="80%" pt={7}>
+              <Button w="full" colorScheme="red" variant="outline">
+                Start trial
+              </Button>
+            </Box>
+          </VStack>
+        </PriceWrapper>
+
+        <PriceWrapper>
+          <Box py={4} px={12}>
+            <Text  color={'white'} fontWeight="500" fontSize="2xl">
+            Monthly
+            </Text>
+            <HStack justifyContent="center">
+              <Text  color={'white'} fontSize="3xl" fontWeight="600">
+                $
+              </Text>
+              <Text   color={'white'}fontSize="5xl" fontWeight="900">
+                15
+              </Text>
+              <Text fontSize="3xl" color="gray.500">
+                /month   (25% off)
+              </Text>
+            </HStack>
+          </Box>
+          <VStack
+            // bg={useColorModeValue('gray.50', 'gray.700')}
+            py={4}
+            borderBottomRadius={'xl'}>
+            <List spacing={3} textAlign="start" px={12}>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                24/7 Availability	
+              </ListItem>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                Personalized Advice
+              </ListItem>
+              <ListItem  color={'white'}>
+                <ListIcon as={FaCheckCircle} color="green.500" />
+                Expert-Backed Tips
+              </ListItem>
+            </List>
+            <Box w="80%" pt={7}>
+              <Button w="full" colorScheme="red" variant="outline">
+                Start trial
+              </Button>
+            </Box>
+          </VStack>
+        </PriceWrapper>
+      </Stack>
+    </Box>
+</Stack>
       </Container>
     </Box>
   );

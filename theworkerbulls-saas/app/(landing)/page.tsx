@@ -5,6 +5,7 @@ import  LandingContent  from "@/components/landing-content";
 import { Badge } from "@chakra-ui/react";
 import LandingHero2 from "@/components/LandingHero";
 import LandingFeature from "@/components/LandingFeature";
+import LandingHero3 from "@/components/LandingHero2";
 // import {
 //   Stack,
 //   Flex,
@@ -23,6 +24,7 @@ const LandingPage = () => {
       <LandingHero2 />
       <LandingFeature />
       <LandingContent/>
+      <LandingHero3 />
 
     </div>
   );

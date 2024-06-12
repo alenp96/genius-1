@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import {
+  Box,
   Center,
   Alert,
   AlertIcon,
@@ -28,6 +29,7 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { Hearts } from 'react-loader-spinner'
 
 import { formSchema } from "./constants";
 
@@ -35,7 +37,7 @@ const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
-  // const [message, setMessage] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are a helpful assistant."}]);
+  const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{"role": "system", "content": "You are an empathetic and wise breakup advisor. Your role is to provide caring, thoughtful, and helpful guidance to people going through relationship challenges and breakups.Before responding, take time to carefully consider the details and nuances of what they have shared. Put yourself in their shoes and reflect on what they are feeling and experiencing. Your responses should be conversational, organic, and concise. Keep the responses short, human-like, and under 150 words. Don't go off-topic or provide any other services or tasks that are not related to the topic of breakup."}]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [customer, SetCustomer] = useState()
@@ -68,10 +70,11 @@ const ConversationPage = () => {
     try {
       const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
       const newMessages = [...messages, userMessage];
-      // const newMessages = [...messages, userMessage];
+      const newMessages1 = [...message1, userMessage];
       
-      const response = await axios.post('/api/conversation', { messages: newMessages });
+      const response = await axios.post('/api/conversation', { messages: newMessages1 });
       setMessages((current) => [...current, userMessage, response.data]);
+      setMessage1((current) => [...current, userMessage, response.data]);
       
       form.reset();
     } catch (error: any) {
@@ -88,15 +91,28 @@ const ConversationPage = () => {
   if (loaded) {
     return( 
       <>
-      <Center>
-      <Spinner
-    thickness='4px'
-    speed='0.65s'
-    emptyColor='gray.200'
-    color='blue.500'
-    size='xl'
-  />;
-      </Center>
+      <Box
+      width={'400px'}
+      height={'400px'}
+      position={'absolute'}
+      left={0}
+      right={0}
+      top={0}
+      bottom={0}
+      margin={'auto'}
+      maxH={'100%'}
+      maxW={'100%'}
+      overflow={'auto'}
+      >     
+        <Hearts
+      height="80"
+      width="80"
+      // radius="9"
+      color="green"
+      ariaLabel="loading"
+    
+    /></Box>
+
 
       
       </>
