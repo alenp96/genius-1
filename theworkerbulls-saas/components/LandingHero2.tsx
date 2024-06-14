@@ -16,7 +16,7 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
         justify={'center'} borderWidth="1px"
     borderColor={'gray.200'}
     borderRadius={'xl'}>
-      <Center display={'grid'}>
+    
       <Flex
         w={16}
         h={16}
@@ -31,8 +31,9 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
         {icon}
       </Flex>
       <Text color={'white'} fontWeight={600}>{title}</Text>
-      <Text color={'white'}>{text}</Text>
-      </Center>
+      <Text     align={'center'}
+        color={'white'}>{text}</Text>
+   
 
     </Stack>
   );
