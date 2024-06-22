@@ -6,19 +6,21 @@ import { Badge } from "@chakra-ui/react";
 import LandingHero2 from "@/components/LandingHero";
 import LandingFeature from "@/components/LandingFeature";
 import LandingHero3 from "@/components/LandingHero2";
-// import {
-//   Stack,
-//   Flex,
-//   Button,
-//   Text,
-//   VStack,
-//   useBreakpointValue,
-// } from '@chakra-ui/react';
+import {
+  Stack,
+  Flex,
+  Button,
+  Text,
+  VStack,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 
 const LandingPage = () => {
   return (
     <div >
- privacy
+   <Text color={'white'} fontSize={'xl'} >
+                    contact
+                  </Text>
 
     </div>
   );

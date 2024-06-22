@@ -269,14 +269,76 @@ export default function LandingContent() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
-                Start trial
-              </Button>
+            <Button w="full" colorScheme="red">
+                  Start trial
+                </Button>
             </Box>
           </VStack>
         </PriceWrapper>
 
  
+        <PriceWrapper>
+          <Box position="relative">
+            {/* <Box
+              position="absolute"
+              top="-16px"
+              left="50%"
+              style={{ transform: 'translate(-50%)' }}>
+              <Text
+                textTransform="uppercase"
+                bg={useColorModeValue('red.300', 'red.700')}
+                px={3}
+                py={1}
+                color={useColorModeValue('gray.900', 'gray.300')}
+                fontSize="sm"
+                fontWeight="600"
+                rounded="xl">
+                (25% off)
+              </Text>
+            </Box> */}
+            <Box py={4} px={12}>
+              <Text color={'white'} fontWeight="500" fontSize="2xl">
+              Monthly
+              </Text>
+              <HStack justifyContent="center">
+                <Text  color={'white'} fontSize="3xl" fontWeight="600">
+                  $
+                </Text>
+                <Text color={'white'} fontSize="5xl" fontWeight="900">
+                  19
+                </Text>
+                <Text fontSize="3xl" color="gray.500">
+                  /month
+                </Text>
+              </HStack>
+            </Box>
+            <VStack
+      
+              py={4}
+              borderBottomRadius={'xl'}>
+              <List spacing={3} textAlign="start" px={12}>
+                <ListItem color={'white'}> 
+                  <ListIcon as={FaCheckCircle} color="green.500" />
+                  24/7 Availability
+                </ListItem>
+                <ListItem color={'white'}>
+                  <ListIcon as={FaCheckCircle} color="green.500" />
+                  Personalized Advice
+                </ListItem>
+                <ListItem color={'white'}>
+                  <ListIcon as={FaCheckCircle} color="green.500" />
+                   Expert-Backed Tips
+                </ListItem>
+        
+              </List>
+              <Box w="80%" pt={7}>
+                <Button w="full" colorScheme="red">
+                  Start trial
+                </Button>
+              </Box>
+            </VStack>
+          </Box>
+        </PriceWrapper>
         <PriceWrapper>
           <Box position="relative">
             <Box
@@ -293,19 +355,19 @@ export default function LandingContent() {
                 fontSize="sm"
                 fontWeight="600"
                 rounded="xl">
-                (25% off)
+                (30% off)
               </Text>
             </Box>
             <Box py={4} px={12}>
-              <Text fontWeight="500" fontSize="2xl">
-              Monthly
+              <Text color={'white'} fontWeight="500" fontSize="2xl">
+              3 Months
               </Text>
               <HStack justifyContent="center">
-                <Text fontSize="3xl" fontWeight="600">
+                <Text  color={'white'} fontSize="3xl" fontWeight="600">
                   $
                 </Text>
-                <Text fontSize="5xl" fontWeight="900">
-                  15
+                <Text color={'white'} fontSize="5xl" fontWeight="900">
+                  39
                 </Text>
                 <Text fontSize="3xl" color="gray.500">
                   /month

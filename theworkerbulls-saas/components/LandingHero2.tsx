@@ -108,9 +108,7 @@ export default function SimpleThreeColumns() {
         />
       </SimpleGrid>
       <Flex justifyContent={'space-between'}>
-        <Text color={'white'}>Privacy policy</Text>
-        <Text color={'white'}>Terms and Conditions</Text>
-        <Text color={'white'}>Contact us</Text>
+
       </Flex>
     </Box>
   );
