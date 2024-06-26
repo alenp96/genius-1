@@ -8,7 +8,7 @@ export const MAX_FREE_COUNTS = 5;
 
 export const tools = [
   {
-    label: 'Chat',
+    label: 'Breakup advisor',
     icon: MessageSquare,
     href: '/conversation',
     color: "text-violet-500",

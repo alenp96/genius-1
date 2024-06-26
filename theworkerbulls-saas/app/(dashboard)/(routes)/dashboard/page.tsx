@@ -25,7 +25,7 @@ export default  function HomePage() {
           Explore the power of AI
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Chat with the smartest AI - Experience the power of AI
+          Let it guide you through your emotional turmoil
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
