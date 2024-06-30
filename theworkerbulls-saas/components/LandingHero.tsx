@@ -74,24 +74,24 @@ export default function SimpleThreeColumns() {
           <VStack spacing={4} align="flex-end" flex={1}>
             <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
               <HStack>
-                <Text>"I can't stop thinking about my ex. What should I do?"</Text>
+                <Text>&quot;I can&apos;t stop thinking about my ex. What should I do?&quot;</Text>
               </HStack>
             </Box>
             <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
               <HStack>
                 <Icon as={FcIdea} w={6} h={6} />
-                <Text>"It's understandable. Have you tried any new activities to distract yourself? Exploring hobbies can help shift your focus."</Text>
+                <Text>It&apos;s understandable. Have you tried any new activities to distract yourself? Exploring hobbies can help shift your focus.&quot;</Text>
               </HStack>
             </Box>
             <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
               <HStack>
-                <Text>"I've been avoiding it. I just feel stuck."</Text>
+                <Text>&quot;I&apos;ve been avoiding it. I just feel stuck.&quot;</Text>
               </HStack>
             </Box>
             <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
               <HStack>
                 <Icon as={FcIdea} w={6} h={6} />
-                <Text>"It's normal to feel that way. Maybe start small, like taking a walk or reading a new book. Would you like more suggestions?"</Text>
+                <Text>&quot;It&apos;s normal to feel that way. Maybe start small, like taking a walk or reading a new book. Would you like more suggestions?&quot;</Text>
               </HStack>
             </Box>
           </VStack>

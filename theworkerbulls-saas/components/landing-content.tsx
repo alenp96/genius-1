@@ -329,7 +329,7 @@ export default function LandingContent() {
         <AccordionIcon color="white" />
       </AccordionButton>
       <AccordionPanel color="gray.300" pb={4}>
-        Absolutely. AIBreakupAdvisor is available 24/7, so you can access support whenever you need it. Whether it's late at night or early in the morning, our AI is here to help you through your breakup.
+        Absolutely. AIBreakupAdvisor is available 24/7, so you can access support whenever you need it. Whether it&apos;s late at night or early in the morning, our AI is here to help you through your breakup.
       </AccordionPanel>
     </AccordionItem>
 
