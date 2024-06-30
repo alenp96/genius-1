@@ -1,128 +1,64 @@
 'use client'
 import { ReactNode } from 'react';
 import {
-  Stack,
-  Container,
   Box,
-  Flex,
   Center,
   Text,
   Heading,
   SimpleGrid,
+  VStack,
 } from '@chakra-ui/react';
 
 export default function LandingFeature() {
   return (
-    <Box  marginTop={8} marginBottom={8} paddingLeft={2} paddingBottom={8} paddingRight={2} position={'relative'}>
-      <Center display={'grid'}>
-        
-      <Heading
-                color={'white'}
-                mb={'20px'}
-                fontSize={{ base: '3xl', md: '5xl' }}>
-                Features
-              </Heading>
-
-  
-      </Center>
+    <Box marginTop={8} marginBottom={8} paddingX={4} paddingBottom={8} position={'relative'}>
       <Center>
-      <Flex
-        // flex={1}
-        
-        zIndex={0}
-        display={{ base: 'none', lg: 'flex' }}
-        // backgroundImage="url('/templates/stats-grid-with-image.png')"
-        // backgroundSize={'cover'}
-        // backgroundPosition="center"
-        // backgroundRepeat="no-repeat"
-        // position={'absolute'}
-        // width={'50%'}
-        // insetY={0}
-        // right={0}
-        >
-            {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-              {stats.map((stat) => (
-                <Box key={stat.title}>
-                  <Text
-                    fontFamily={'heading'}
-                    fontSize={'3xl'}
-                    color={'white'}
-                    mb={3}>
-                    {stat.title}
-                  </Text>
-                  <Text fontSize={'xl'} color={'gray.400'}>
-                    {stat.content}
-                  </Text>
-                </Box>
-              ))}
-            </SimpleGrid> */}
-
-
-
-      </Flex>
+        <Heading color={'white'} mb={'20px'} fontSize={{ base: '3xl', md: '5xl' }}>
+          Features
+        </Heading>
       </Center>
- 
-      <SimpleGrid marginLeft={['unset','200px']} columns={2} spacing={10}>
-      {stats.map((stat) => (
-            
-      <Box key={stat.title}  height={['unset','100px']}>
-                <Text
-                    fontFamily={'heading'}
-                    fontSize={'3xl'}
-                    color={'white'}
-                    mb={3}>
-                    {stat.title}
-                  </Text>
-                  <Text fontSize={'xl'} color={'gray.400'}>
-                    {stat.content}
-                  </Text>
-
-</Box>
-              ))}
-
-</SimpleGrid>
-  
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} padding={4}>
+        {stats.map((stat) => (
+          <Box
+            key={stat.title}
+            bg="gray.700"
+            borderRadius="md"
+            p={6}
+            boxShadow="lg"
+            textAlign="center"
+            transition="transform 0.2s"
+            _hover={{ transform: 'scale(1.05)', bg: 'gray.600' }}
+          >
+            <VStack spacing={3}>
+              <Text fontFamily={'heading'} fontSize={'2xl'} color={'white'} mb={1}>
+                {stat.title}
+              </Text>
+              <Text fontSize={'lg'} color={'gray.300'}>
+                {stat.content}
+              </Text>
+            </VStack>
+          </Box>
+        ))}
+      </SimpleGrid>
     </Box>
   );
 }
 
-const StatsText = ({ children }: { children: ReactNode }) => (
-  <Text as={'span'} fontWeight={700} color={'white'}>
-    {children}
-  </Text>
-);
-
 const stats = [
   {
     title: '24/7 Availability',
-    content: (
-      <>
-       Get support whenever you need it.
-      </>
-    ),
+    content: 'Get support whenever you need it.',
   },
   {
     title: 'Personalized Advice',
-    content: (
-      <>
-       Tailored to your unique situation.
-      </>
-    ),
+    content: 'Tailored to your unique situation.',
   },
   {
     title: 'Expert-Backed Tips',
-    content: (
-      <>
-      Based on the latest relationship psychology.
-      </>
-    ),
+    content: 'Based on the latest relationship psychology.',
   },
   {
     title: 'Progress Tracking',
-    content: (
-      <>
-     Monitor your emotional recovery over time
-      </>
-    ),
+    content: 'Monitor your emotional recovery over time.',
   },
 ];

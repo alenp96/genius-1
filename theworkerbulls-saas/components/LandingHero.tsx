@@ -1,7 +1,7 @@
 'use client'
 import { ReactElement } from 'react';
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
+import { Box, SimpleGrid, Icon, Text, Stack, Flex, VStack, Container, Heading, HStack } from '@chakra-ui/react';
+import { FcAssistant, FcDonate, FcInTransit, FcIdea } from 'react-icons/fc';
 
 interface FeatureProps {
   title: string;
@@ -11,22 +11,16 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
   return (
-    <Stack     align={'center'}
-    justify={'center'}>
-      <Flex
-        w={16}
-        h={16}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-        bg={'gray.100'}
-        mb={1}>
+    <Stack align={'center'} justify={'center'} spacing={4} p={4} bg={'gray.700'} borderRadius={'md'} boxShadow={'lg'}>
+      <Flex w={16} h={16} align={'center'} justify={'center'} rounded={'full'} bg={'purple.600'} mb={1}>
         {icon}
       </Flex>
-      <Text color={'white'} fontWeight={600}>{title}</Text>
-      <Text     align={'center'}
-     color={'white'}>{text}</Text>
+      <Text color={'white'} fontWeight={600} fontSize={'lg'} textAlign={'center'}>
+        {title}
+      </Text>
+      <Text align={'center'} color={'gray.300'}>
+        {text}
+      </Text>
     </Stack>
   );
 };
@@ -36,27 +30,73 @@ export default function SimpleThreeColumns() {
     <Box p={4}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
+          icon={<Icon as={FcAssistant} w={12} h={12} />}
           title={'Available 24/7'}
-          text={
-            'Our AI is always here for you. Whether its day or night, AIBreakupAdvisor provides round-the-clock support to help you through your toughest moments.'
-          }
+          text={'Round-the-clock support to help you anytime.'}
         />
         <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
+          icon={<Icon as={FcDonate} w={12} h={12} />}
           title={'Affordable Support'}
-          text={
-            'AIBreakupAdvisor offers expert advice at a fraction of the cost of traditional breakup coaches. Get personalized support without breaking the bank.'
-          }
+          text={'Expert advice at a fraction of the cost.'}
         />
         <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
+          icon={<Icon as={FcInTransit} w={12} h={12} />}
           title={'Empathetic Support'}
-          text={
-            'AIBreakupAdvisor understands your pain. Our AI offers compassionate and empathetic support, making sure you feel heard and understood every step of the way.'
-          }
+          text={'Compassionate support to help you heal.'}
         />
       </SimpleGrid>
+      <Container maxW={'6xl'} mt={10}>
+        <HStack align={'flex-start'} spacing={8}>
+          <VStack spacing={6} align={'flex-start'} flex={1}>
+            <Heading as="h3" size="lg" color={'white'}>
+              Our Mission
+            </Heading>
+            <Text
+              color={'gray.300'}
+              fontSize={'lg'}
+              lineHeight={1.7}
+              bg={'gray.800'}
+              p={4}
+              borderRadius={'md'}
+              boxShadow={'md'}
+              border={'2px solid #805AD5'}
+            >
+              This project was born from a personal journey of overcoming <b>heartbreak</b>. Understanding the challenges of navigating a breakup without spending a fortune on coaches, I set out to create a simple, affordable solution.
+              <br /> 
+              <br />
+              This AI chatbot is designed to provide compassionate support and practical advice, helping others through tough times. 
+              <br />
+              <br />
+              My goal is to offer an accessible resource for healing and personal growth, ensuring no one feels alone on their journey to recovery.
+            
+            </Text>
+          </VStack>
+          <VStack spacing={4} align="flex-end" flex={1}>
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
+              <HStack>
+                <Text>"I can't stop thinking about my ex. What should I do?"</Text>
+              </HStack>
+            </Box>
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
+              <HStack>
+                <Icon as={FcIdea} w={6} h={6} />
+                <Text>"It's understandable. Have you tried any new activities to distract yourself? Exploring hobbies can help shift your focus."</Text>
+              </HStack>
+            </Box>
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
+              <HStack>
+                <Text>"I've been avoiding it. I just feel stuck."</Text>
+              </HStack>
+            </Box>
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
+              <HStack>
+                <Icon as={FcIdea} w={6} h={6} />
+                <Text>"It's normal to feel that way. Maybe start small, like taking a walk or reading a new book. Would you like more suggestions?"</Text>
+              </HStack>
+            </Box>
+          </VStack>
+        </HStack>
+      </Container>
     </Box>
   );
 }
