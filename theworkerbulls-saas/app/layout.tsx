@@ -14,8 +14,8 @@ import "core-js/stable";
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Breakupadvisor',
-  description: 'Your Personal Breakup Advisor Powered by AI',
+  title: 'AIBreakupAdvisor',
+  description: 'Get personalized AI breakup support 24/7. Expert advice, emotional guidance, and practical tips to help you heal and move forward.',
 }
 
 export default async function RootLayout({
