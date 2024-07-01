@@ -14,8 +14,8 @@ import "core-js/stable";
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Genius',
-  description: 'AI Platform',
+  title: 'Breakupadvisor',
+  description: 'Your Personal Breakup Advisor Powered by AI',
 }
 
 export default async function RootLayout({
