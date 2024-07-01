@@ -31,7 +31,7 @@ const LandingPage = () => {
 <Box>
 <footer className="bg-gray-800 py-8">
     <div className="max-w-screen-xl mx-auto flex flex-col items-center">
-        <img src="/logo.png" alt="Logo" className="w-24 mb-4" style={{ width: '250px' }} />
+        <img src="/logo4.png" alt="Logo" className="w-24 mb-4" style={{ width: '250px' }} />
         <div className="flex space-x-4 text-white">
         <a href="#about" className="hover:underline">About</a>
             <a href="mailto:info@breakupadvisor.com" className="hover:underline">Contact</a>
