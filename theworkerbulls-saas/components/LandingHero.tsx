@@ -46,7 +46,7 @@ export default function SimpleThreeColumns() {
         />
       </SimpleGrid>
       <Container maxW={'6xl'} mt={10}>
-        <HStack align={'flex-start'} spacing={8}>
+        <HStack align={'flex-start'} spacing={{ base: 4, md: 8 }} flexWrap={'wrap'}>
           <VStack spacing={6} align={'flex-start'} flex={1}>
             <Heading as="h3" size="lg" color={'white'}>
               Our Mission
@@ -62,33 +62,32 @@ export default function SimpleThreeColumns() {
               border={'2px solid #805AD5'}
             >
               This project was born from a personal journey of overcoming <b>heartbreak</b>. Understanding the challenges of navigating a breakup without spending a fortune on coaches, I set out to create a simple, affordable solution.
-              <br /> 
               <br />
-              This AI chatbot is designed to provide compassionate support and practical advice, helping others through tough times. 
+              <br />
+              This AI chatbot is designed to provide compassionate support and practical advice, helping others through tough times.
               <br />
               <br />
               My goal is to offer an accessible resource for healing and personal growth, ensuring no one feels alone on their journey to recovery.
-            
             </Text>
           </VStack>
           <VStack spacing={4} align="flex-end" flex={1}>
-            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="90%" alignSelf="flex-end">
               <HStack>
                 <Text>&quot;I can&apos;t stop thinking about my ex. What should I do?&quot;</Text>
               </HStack>
             </Box>
-            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="90%" alignSelf="flex-start">
               <HStack>
                 <Icon as={FcIdea} w={6} h={6} />
-                <Text>It&apos;s understandable. Have you tried any new activities to distract yourself? Exploring hobbies can help shift your focus.&quot;</Text>
+                <Text>&quot;It&apos;s understandable. Have you tried any new activities to distract yourself? Exploring hobbies can help shift your focus.&quot;</Text>
               </HStack>
             </Box>
-            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-end">
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="90%" alignSelf="flex-end">
               <HStack>
                 <Text>&quot;I&apos;ve been avoiding it. I just feel stuck.&quot;</Text>
               </HStack>
             </Box>
-            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="60%" alignSelf="flex-start">
+            <Box bg="purple.600" p={4} borderRadius="md" boxShadow="md" color="white" maxW="90%" alignSelf="flex-start">
               <HStack>
                 <Icon as={FcIdea} w={6} h={6} />
                 <Text>&quot;It&apos;s normal to feel that way. Maybe start small, like taking a walk or reading a new book. Would you like more suggestions?&quot;</Text>
