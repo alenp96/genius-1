@@ -119,9 +119,9 @@ const ConversationPage = () => {
     
   )
 }
-  if (!loaded && !sub)  {
-    router.push('/profile');
-}
+//   if (!loaded && !sub)  {
+//     router.push('/profile');
+// }
 
   return ( 
     <div className="mt-6">
@@ -198,7 +198,9 @@ const ConversationPage = () => {
           </div>
         </div></>):(<>        <Alert status='success'>
     <AlertIcon />
-    Please subscribe to view
+    It looks like you don't have an active subscription. To access the chat section and enjoy all the features, please subscribe to one of our plans.
+
+[Subscribe Now]
   </Alert></>)}
         <></>
 
