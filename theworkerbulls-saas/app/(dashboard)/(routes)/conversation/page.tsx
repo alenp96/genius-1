@@ -196,7 +196,7 @@ const ConversationPage = () => {
               </div>
             ))}
           </div>
-        </div></>):(<>        <Alert status='success'>
+        </div></>):(<>        <Alert status='warning'>
     <AlertIcon />
     It looks like you don&apos;t have an active subscription. To access the chat section and enjoy all the features, please subscribe to one of our plans.
 
