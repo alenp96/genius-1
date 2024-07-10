@@ -21,6 +21,7 @@ import {
   Center,
   Alert,
   AlertIcon,
+  Link,
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react'
@@ -199,8 +200,11 @@ const ConversationPage = () => {
         </div></>):(<>        <Alert status='warning'>
     <AlertIcon />
     It looks like you don&apos;t have an active subscription. To access the chat section and enjoy all the features, please subscribe to one of our plans.
+    <Link color='teal.500' href='/profile'>
+    Subscribe Now
+  </Link>
 
-[Subscribe Now]
+
   </Alert></>)}
         <></>
 
