@@ -37,9 +37,9 @@ const ProfilePage = () => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
       const _hasSub = await hasSub.json()
-      SetLInk(_hasSub?.link)
-      SetSub(_hasSub?.sub)
-      SetExpiry(_hasSub?.exp)
+      // SetLInk(_hasSub?.link)
+      // SetSub(_hasSub?.sub)
+      // SetExpiry(_hasSub?.exp)
       SetDisabled(false)
       console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
@@ -177,7 +177,8 @@ const ProfilePage = () => {
                   _hover={{
                     transform: 'translateY(-2px)',
                     boxShadow: 'lg',
-                  }}>{link ?null:<Spinner />}
+                  }}>
+                    {/* {link ?null:<Spinner />} */}
                   Subscribe
                 </Link>)}
 
