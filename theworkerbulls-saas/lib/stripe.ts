@@ -73,8 +73,8 @@ export async function createCheckoutLink(customer: string,user:string) {
   
   }else{
       const checkout = await stripe.checkout.sessions.create({
-    success_url: "https://genius-beta-lac.vercel.app/sub?session_id={CHECKOUT_SESSION_ID}?",
-    cancel_url: "https://genius-beta-lac.vercel.app/profile",
+    success_url: "https://breakupadvisor.com/conversation/sub?session_id={CHECKOUT_SESSION_ID}?",
+    cancel_url: "https://breakupadvisor.com/conversation/profile",
     customer: customer,
     payment_method_types: ["card"],
     line_items: [

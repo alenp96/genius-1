@@ -129,7 +129,7 @@ export const Sidebar = ({
                 {route.label}
               </div>
             </Link>
-          ))}</>) : (<>          {routes2.map((route) => (
+          ))}</>) : (<>          {routes.map((route) => (
             <Link
               key={route.href}
               href={route.href}
