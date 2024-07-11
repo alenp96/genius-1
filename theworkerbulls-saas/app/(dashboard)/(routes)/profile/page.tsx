@@ -309,7 +309,7 @@ const ProfilePage = () => {
               </List>
               <Box w="80%" pt={7}>
                 <Button w="full" colorScheme="red">
-                  Start chatting
+                  Subscribe
                 </Button>
               </Box>
             </VStack>
@@ -371,7 +371,7 @@ const ProfilePage = () => {
               </List>
               <Box w="80%" pt={7}>
                 <Button w="full" colorScheme="red">
-                  Start chatting
+                  Subscribe
                 </Button>
               </Box>
             </VStack>
