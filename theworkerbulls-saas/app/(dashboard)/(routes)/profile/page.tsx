@@ -237,7 +237,7 @@ const ProfilePage = () => {
 
             </Box>
           </Box>
-          <Box py={12}>
+          <Box ml={12}py={12}>
       <VStack spacing={2} textAlign="center">
         <Text  color={'black'} as="h1" fontSize="4xl">
           Pricing
