@@ -239,7 +239,7 @@ const ProfilePage = () => {
           </Box>
           <Box py={12}>
       <VStack spacing={2} textAlign="center">
-        <Text  color={'white'} as="h1" fontSize="4xl">
+        <Text  color={'black'} as="h1" fontSize="4xl">
           Pricing
         </Text>
         <Text fontSize="lg" color={'gray.500'}>
@@ -273,14 +273,14 @@ const ProfilePage = () => {
               </Text>
             </Box> */}
             <Box py={4} px={12}>
-              <Text color={'white'} fontWeight="500" fontSize="2xl">
+              <Text color={'black'} fontWeight="500" fontSize="2xl">
               Monthly
               </Text>
               <HStack justifyContent="center">
-                <Text  color={'white'} fontSize="3xl" fontWeight="600">
+                <Text  color={'black'} fontSize="3xl" fontWeight="600">
                   $
                 </Text>
-                <Text color={'white'} fontSize="5xl" fontWeight="900">
+                <Text color={'black'} fontSize="5xl" fontWeight="900">
                   19
                 </Text>
                 <Text fontSize="3xl" color="gray.500">
@@ -293,15 +293,15 @@ const ProfilePage = () => {
               py={4}
               borderBottomRadius={'xl'}>
               <List spacing={3} textAlign="start" px={12}>
-                <ListItem color={'white'}> 
+                <ListItem color={'black'}> 
                   <ListIcon as={FaCheckCircle} color="green.500" />
                   24/7 Availability
                 </ListItem>
-                <ListItem color={'white'}>
+                <ListItem color={'black'}>
                   <ListIcon as={FaCheckCircle} color="green.500" />
                   Personalized Advice
                 </ListItem>
-                <ListItem color={'white'}>
+                <ListItem color={'black'}>
                   <ListIcon as={FaCheckCircle} color="green.500" />
                    Expert-Backed Tips
                 </ListItem>
@@ -335,14 +335,14 @@ const ProfilePage = () => {
               </Text>
             </Box>
             <Box py={4} px={12}>
-              <Text color={'white'} fontWeight="500" fontSize="2xl">
+              <Text color={'black'} fontWeight="500" fontSize="2xl">
               3 Months
               </Text>
               <HStack justifyContent="center">
-                <Text  color={'white'} fontSize="3xl" fontWeight="600">
+                <Text  color={'black'} fontSize="3xl" fontWeight="600">
                   $
                 </Text>
-                <Text color={'white'} fontSize="5xl" fontWeight="900">
+                <Text color={'black'} fontSize="5xl" fontWeight="900">
                   39
                 </Text>
                 <Text fontSize="3xl" color="gray.500">
@@ -355,15 +355,15 @@ const ProfilePage = () => {
               py={4}
               borderBottomRadius={'xl'}>
               <List spacing={3} textAlign="start" px={12}>
-                <ListItem color={'white'}> 
+                <ListItem color={'black'}> 
                   <ListIcon as={FaCheckCircle} color="green.500" />
                   24/7 Availability
                 </ListItem>
-                <ListItem color={'white'}>
+                <ListItem color={'black'}>
                   <ListIcon as={FaCheckCircle} color="green.500" />
                   Personalized Advice
                 </ListItem>
-                <ListItem color={'white'}>
+                <ListItem color={'black'}>
                   <ListIcon as={FaCheckCircle} color="green.500" />
                    Expert-Backed Tips
                 </ListItem>
