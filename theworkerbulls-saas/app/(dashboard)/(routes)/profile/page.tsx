@@ -46,7 +46,7 @@ function PriceWrapper({ children }: { children: ReactNode }) {
       shadow="base"
       borderWidth="1px"
       alignSelf={{ base: 'center', lg: 'flex-start' }}
-      borderColor={useColorModeValue('gray.200', 'gray.500')}
+      borderColor={'gray.200'}
       borderRadius={'xl'}>
       {children}
     </Box>
@@ -327,10 +327,10 @@ py={10}>
       style={{ transform: 'translate(-50%)' }}>
       <Text
         textTransform="uppercase"
-        bg={useColorModeValue('red.300', 'red.700')}
+        bg={'red.300'}
         px={3}
         py={1}
-        color={useColorModeValue('gray.900', 'gray.300')}
+        color={'gray.900'}
         fontSize="sm"
         fontWeight="600"
         rounded="xl">
