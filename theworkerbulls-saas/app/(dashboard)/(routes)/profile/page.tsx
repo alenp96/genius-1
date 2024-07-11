@@ -239,9 +239,9 @@ const ProfilePage = () => {
           </Box>
           <Box py={12}>
       <VStack spacing={2} textAlign="center">
-        <Heading  color={'white'} as="h1" fontSize="4xl">
+        <Text  color={'white'} as="h1" fontSize="4xl">
           Pricing
-        </Heading>
+        </Text>
         <Text fontSize="lg" color={'gray.500'}>
         Plans that fit your need
         </Text>
