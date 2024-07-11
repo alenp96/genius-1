@@ -324,10 +324,10 @@ const ProfilePage = () => {
               style={{ transform: 'translate(-50%)' }}>
               <Text
                 textTransform="uppercase"
-                bg={useColorModeValue('red.300', 'red.700')}
+                bg={'red.300'}
                 px={3}
                 py={1}
-                color={useColorModeValue('gray.900', 'gray.300')}
+                color={'gray.900'}
                 fontSize="sm"
                 fontWeight="600"
                 rounded="xl">
