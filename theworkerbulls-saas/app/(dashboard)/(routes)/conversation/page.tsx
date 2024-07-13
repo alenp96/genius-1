@@ -96,7 +96,7 @@ const ConversationPage = () => {
           width={'400px'}
           height={'400px'}
           position={'absolute'}
-          left={0}
+          left={'50%'}
           right={0}
           top={0}
           bottom={0}
