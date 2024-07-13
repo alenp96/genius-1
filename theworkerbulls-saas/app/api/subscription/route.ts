@@ -18,13 +18,13 @@ export async function GET() {
     const sub1 = await hasSubscription();
     
     const _expiry = await expiry();
-    const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    const checkoutLink = await createCheckoutLink(String(customer),String(userId));
-    console.log('subs ,customer-->',sub1,customer)
+    // const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
+    // const checkoutLink = await createCheckoutLink(String(customer),String(userId));
+    // console.log('subs ,customer-->',sub1,customer)
   
-    return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry}))
+    // return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry}))
 
-    // return new NextResponse(JSON.stringify({ url: sub1 ,exp:_expiry}))
+    return new NextResponse(JSON.stringify({ url: sub1 ,exp:_expiry}))
   } catch (error) {
     console.log("[STRIPE_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
