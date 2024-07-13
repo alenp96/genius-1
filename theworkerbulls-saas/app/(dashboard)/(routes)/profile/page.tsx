@@ -86,7 +86,7 @@ const ProfilePage = () => {
       width={'400px'}
       height={'400px'}
       position={'absolute'}
-      left={'30%'}
+      left={'20%'}
       right={0}
       top={0}
       bottom={0}
@@ -122,6 +122,7 @@ const ProfilePage = () => {
 
 
             <Box
+            display={['none','unset','unset','unset']}
               maxW={'270px'}
               w={'full'}
               bg={'white'}
