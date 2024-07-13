@@ -70,8 +70,8 @@ const ProfilePage = () => {
       SetSub(_hasSub?.sub)
       SetExpiry(_hasSub?.exp)
       SetDisabled(false)
-      console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
-      // console.log('has sub',hasSub)
+      console.log('in useeffect',_hasSub, _hasSub?.link, _hasSub?.sub)
+      // console.log('has sub',_hasSub)
     }
 
     // call the function
