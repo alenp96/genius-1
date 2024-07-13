@@ -24,7 +24,7 @@ export async function GET() {
   
     // return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry}))
 
-    return new NextResponse(JSON.stringify({ url: sub1 ,exp:_expiry,customer:customer,checkoutLink:checkoutLink}))
+    return new NextResponse(JSON.stringify({ url: sub1 ,exp:_expiry,customer:customer,checkoutLink:''}))
   } catch (error) {
     console.log("[STRIPE_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
