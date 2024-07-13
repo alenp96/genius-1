@@ -19,7 +19,7 @@ export async function GET() {
     
     const _expiry = await expiry();
     const customer = await createCustomerIfNull(String(user?.emailAddresses[0]?.emailAddress));
-    const checkoutLink = await createCheckoutLink(String(customer),String(userId));
+    // const checkoutLink = await createCheckoutLink(String(customer),String(userId));
     // console.log('subs ,customer-->',sub1,customer)
   
     // return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry}))
