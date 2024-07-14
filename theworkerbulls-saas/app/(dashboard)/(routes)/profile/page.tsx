@@ -292,12 +292,17 @@ const ProfilePage = () => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                        <Button w="full"
-                           as={NextLink} 
-                             href={link ? String(link[0]) : '#'}
-                        colorScheme="red" variant='outline'>
+                      {sub?(         <Button  
+                        variant='outline'
+                            as={NextLink} 
+                             href={link ? String(link) : '#'}w="full" colorScheme="red">
+                          Manage
+                        </Button>):(         <Button  
+                        variant='outline'
+                            as={NextLink} 
+                             href={link ? String(link[0]) : '#'}w="full" colorScheme="red">
                           Subscribe
-                        </Button>
+                        </Button>)}
                       </Box>
                     </VStack>
                   </Box>
@@ -357,12 +362,18 @@ const ProfilePage = () => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                        <Button  
+                        {sub?(         <Button  
+                        variant='outline'
+                            as={NextLink} 
+                             href={link ? String(link) : '#'}w="full" colorScheme="red">
+                          Manage
+                        </Button>):(         <Button  
                         variant='outline'
                             as={NextLink} 
                              href={link ? String(link[1]) : '#'}w="full" colorScheme="red">
                           Subscribe
-                        </Button>
+                        </Button>)}
+               
                       </Box>
                     </VStack>
                   </Box>
