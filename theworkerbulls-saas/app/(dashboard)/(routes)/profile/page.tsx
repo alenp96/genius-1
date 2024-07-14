@@ -186,7 +186,7 @@ const ProfilePage = () => {
 
                 </Stack></>) : (<></>)}
 
-                <Center>
+                {/* <Center>
                   {sub ? (<Link
                     //@ts-ignore
                     // as={'link'}
@@ -195,7 +195,7 @@ const ProfilePage = () => {
                     mt={8}
                     paddingX={4}
 
-                    href={link ? String(link) : '#'}
+                    href={link ? String(link[0]) : '#'}
                     paddingY={2}
                     //@ts-ignore
                     _disabled={true}
@@ -233,7 +233,7 @@ const ProfilePage = () => {
                     Subscribe
                   </Link>)}
 
-                </Center>
+                </Center> */}
 
               </Box>
             </Box>
@@ -292,7 +292,10 @@ const ProfilePage = () => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                        <Button w="full" colorScheme="red" variant='outline'>
+                        <Button w="full"
+                           as={NextLink} 
+                             href={link ? String(link[0]) : '#'}
+                        colorScheme="red" variant='outline'>
                           Subscribe
                         </Button>
                       </Box>
@@ -354,7 +357,8 @@ const ProfilePage = () => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                        <Button w="full" colorScheme="red">
+                        <Button         as={NextLink} 
+                             href={link ? String(link[1]) : '#'}w="full" colorScheme="red">
                           Subscribe
                         </Button>
                       </Box>
