@@ -86,6 +86,19 @@ export async function createCheckoutLink(customer: string,user:string) {
     ],
     mode: "subscription"
   })
+  const checkout1 = await stripe.checkout.sessions.create({
+    success_url: "https://breakupadvisor.com/conversation/sub?session_id={CHECKOUT_SESSION_ID}?",
+    cancel_url: "https://breakupadvisor.com/conversation/profile",
+    customer: customer,
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price: 'price_1PaLCeRot8TS07y6f0iaNFKd',
+        quantity: 1,
+      },
+    ],
+    mode: "subscription"
+  })
   console.log('checkout url',checkout)
 
   return checkout.url;
