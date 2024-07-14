@@ -357,7 +357,9 @@ const ProfilePage = () => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                        <Button         as={NextLink} 
+                        <Button  
+                        variant='outline'
+                            as={NextLink} 
                              href={link ? String(link[1]) : '#'}w="full" colorScheme="red">
                           Subscribe
                         </Button>
