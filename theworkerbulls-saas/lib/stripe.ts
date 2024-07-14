@@ -101,7 +101,8 @@ export async function createCheckoutLink(customer: string,user:string) {
   })
   console.log('checkout url',checkout)
 
-  return checkout.url;
+  const urls =[checkout?.url,checkout1?.url]
+  return urls
   }
   
 
