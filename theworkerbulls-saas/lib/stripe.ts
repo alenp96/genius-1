@@ -72,6 +72,7 @@ export async function createCheckoutLink(customer: string,user:string) {
     // return '/dashboard'
   
   }else{
+    console.log('enter checkout')
       const checkout = await stripe.checkout.sessions.create({
     success_url: "https://breakupadvisor.com/conversation/sub?session_id={CHECKOUT_SESSION_ID}?",
     cancel_url: "https://breakupadvisor.com/conversation/profile",
@@ -79,12 +80,13 @@ export async function createCheckoutLink(customer: string,user:string) {
     payment_method_types: ["card"],
     line_items: [
       {
-        price: 'price_1PLMJ7Rot8TS07y6dYnY894u',
+        price: 'price_1PL7AaRot8TS07y6khfZgni2',
         quantity: 1,
       },
     ],
     mode: "subscription"
   })
+  console.log('checkout url',checkout)
 
   return checkout.url;
   }
@@ -97,22 +99,22 @@ export async function createCustomerIfNull(email:String) {
   // const {  user } = useUser();
 
   if (userId) {
-    console.log('user found')
+    // console.log('user found')
 
     const _user = await prismadb.userSubscription.findUnique({
       //@ts-ignore
       where: { userId: userId },
     });
-    console.log('_user results->',_user)
+    // console.log('_user results->',_user)
 
 
     if (!_user) {
-      console.log('no user ')
+      // console.log('no user ')
       const customer = await stripe.customers.create({
         email: String(email)
       })
       const subscriptions = await stripe.customers.list()
-      console.log('customer',customer,email)
+      // console.log('customer',customer,email)
 
 
       await prismadb.userSubscription.create({
