@@ -53,8 +53,8 @@ const ConversationPage = () => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
       const _hasSub = await hasSub.json()
-      // SetLInk(_hasSub?.link)
-      // SetSub(_hasSub?.sub)
+      SetLInk(_hasSub?.link)
+      SetSub(_hasSub?.sub)
       SetDisabled(false)
       console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
       // console.log('has sub',hasSub)
