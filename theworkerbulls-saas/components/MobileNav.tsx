@@ -29,7 +29,7 @@ import {
 
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
-import { auth, useUser } from "@clerk/nextjs";
+import { auth, useUser ,SignOutButton} from "@clerk/nextjs";
 // import { useUser } from "@auth0/nextjs-auth0";
 // import { GET_UNREAD_ORDERS_FOR_ME_QUERY } from "../../graphql/queries";
 // import { useQuery } from "@apollo/react-hooks";
@@ -146,9 +146,11 @@ const MobileNav: React.FC<MobileProps> = ({onOpen}) => {
                   <MenuItem>Sign in</MenuItem>
                 </Link>
               )} */}
-                   <Link style={{ textDecoration: "none" }} href="#">
+                   {/* <Link style={{ textDecoration: "none" }} href="#"> */}
+                   <SignOutButton >
                   <MenuItem>Sign out</MenuItem>
-                </Link>
+                  </SignOutButton>
+                {/* </Link> */}
             </MenuList>
           </Menu>
         </Flex>
