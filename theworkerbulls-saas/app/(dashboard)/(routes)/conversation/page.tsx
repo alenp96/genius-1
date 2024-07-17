@@ -134,7 +134,7 @@ const ConversationPage = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="px-4 lg:px-8">
-      <Empty label="No conversation started." />
+    
       
         {sub ? (<>        <div>
           <Form {...form}>
