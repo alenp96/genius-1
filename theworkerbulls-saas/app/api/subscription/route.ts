@@ -5,7 +5,7 @@ import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
 
-import { hasSubscription ,createCustomerIfNull,createCheckoutLink,expiry} from "@/lib/stripe";
+import { hasSubscription ,createCustomerIfNull,createCheckoutLink,expiry,getOnlineSubscription} from "@/lib/stripe";
 const settingsUrl = absoluteUrl("/settings");
 
 export async function GET() {
@@ -22,8 +22,9 @@ export async function GET() {
   
     const checkoutLink = await createCheckoutLink(String(customer),String(userId));
     // console.log('subs ,customer-->',sub1,customer)
+    const getOnline= await getOnlineSubscription()
   
-    return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry}))
+    return new NextResponse(JSON.stringify({ sub: sub1,link:checkoutLink,exp:_expiry,online_sub:getOnline}))
 
     // return new NextResponse(JSON.stringify({ url: sub1 ,exp:_expiry,customer:customer,checkoutLink:''}))
   } catch (error) {
