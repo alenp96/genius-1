@@ -53,7 +53,7 @@ export async function getOnlineSubscription() {
   const { userId ,user} = auth();
    const sub =await stripe.subscriptions.list()
 
-  return sub
+  return sub.data
 }
 export async function createCheckoutLink(customer: string,user:string) {
   const { userId } = auth();
