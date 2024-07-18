@@ -45,7 +45,7 @@ export async function hasSubscription() {
   const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe')
 //  console.log('user sub',subscription)
 //  if(subscription?.stripeSubscriptionId || result ){
-  if(subscription?.stripeSubscriptionId ){
+  if(subscription?.stripeSubscriptionId || result){
   return true
  }else{
   return false
