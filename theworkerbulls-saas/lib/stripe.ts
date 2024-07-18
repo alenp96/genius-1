@@ -42,9 +42,10 @@ export async function hasSubscription() {
   });
   const sub =await stripe.subscriptions.list()
   // const result = sub?.data?.find( ({ customer }) => customer === subscription?.stripeCustomerId )
-  const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe')
- console.log('user sub',subscription)
- if(subscription?.stripeSubscriptionId || result ){
+//   const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe')
+//  console.log('user sub',subscription)
+//  if(subscription?.stripeSubscriptionId || result ){
+  if(subscription?.stripeSubscriptionId ){
   return true
  }else{
   return false
