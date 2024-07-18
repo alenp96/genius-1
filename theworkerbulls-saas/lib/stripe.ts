@@ -40,8 +40,11 @@ export async function hasSubscription() {
     //@ts-ignore
     where: { userId: userId },
   });
+  const sub =await stripe.subscriptions.list()
+  // const result = sub?.data?.find( ({ customer }) => customer === subscription?.stripeCustomerId )
+  const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe')
  console.log('user sub',subscription)
- if(subscription?.stripeSubscriptionId){
+ if(subscription?.stripeSubscriptionId || result ){
   return true
  }else{
   return false
@@ -52,7 +55,11 @@ export async function hasSubscription() {
 export async function getOnlineSubscription() {
   const { userId ,user} = auth();
    const sub =await stripe.subscriptions.list()
-   const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe' )
+   const _user = await prismadb.userSubscription.findUnique({
+    //@ts-ignore
+    where: { userId: user },
+  });
+   const result = sub?.data?.find( ({ customer }) => customer === _user?.stripeCustomerId )
 
   return result
 }
