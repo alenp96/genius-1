@@ -52,8 +52,9 @@ export async function hasSubscription() {
 export async function getOnlineSubscription() {
   const { userId ,user} = auth();
    const sub =await stripe.subscriptions.list()
+   const result = sub?.data?.find( ({ customer }) => customer === 'cus_QUTXkESgXGcyYe' )
 
-  return sub.data
+  return result
 }
 export async function createCheckoutLink(customer: string,user:string) {
   const { userId } = auth();
