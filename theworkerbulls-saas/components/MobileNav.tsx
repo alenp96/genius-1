@@ -29,7 +29,8 @@ import {
 
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
-import { auth, useUser ,SignOutButton} from "@clerk/nextjs";
+import { currentUser ,auth} from '@clerk/nextjs/server';
+import {  useUser ,SignOutButton} from "@clerk/nextjs";
 // import { useUser } from "@auth0/nextjs-auth0";
 // import { GET_UNREAD_ORDERS_FOR_ME_QUERY } from "../../graphql/queries";
 // import { useQuery } from "@apollo/react-hooks";

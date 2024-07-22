@@ -1,6 +1,7 @@
 
 import Stripe from "stripe"
-import { auth, useUser } from "@clerk/nextjs";
+
+import { currentUser ,auth} from '@clerk/nextjs/server';
 
 import prismadb from "@/lib/prismadb";
 
@@ -13,7 +14,7 @@ export const stripe = new Stripe(process.env.STRIPE_API_KEY!, {
 });
 
 export async function expiry() {
-  const { userId ,user} = auth();
+  const { userId } = auth();
   const subscription = await prisma.userSubscription.findUnique({
     //@ts-ignore
     where: { userId: userId },
@@ -35,7 +36,7 @@ return subscription?.stripeCurrentPeriodEnd
   
 }
 export async function hasSubscription() {
-  const { userId ,user} = auth();
+  const { userId } = auth();
   const subscription = await prisma.userSubscription.findUnique({
     //@ts-ignore
     where: { userId: userId },
@@ -54,7 +55,7 @@ export async function hasSubscription() {
   
 }
 export async function getOnlineSubscription() {
-  const { userId ,user} = auth();
+  const { userId } = auth();
    const sub =await stripe.subscriptions.list()
    const _user = await prismadb.userSubscription.findUnique({
     //@ts-ignore
@@ -124,7 +125,7 @@ export async function createCheckoutLink(customer: string,user:string) {
 }
 export async function createCustomerIfNull(email:String) {
   console.log('enter customer register',email)
-  const { userId, user } = auth();
+  const { userId } = auth();
   // const {  user } = useUser();
 
   if (userId) {

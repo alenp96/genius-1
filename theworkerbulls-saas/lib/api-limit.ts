@@ -1,4 +1,5 @@
-import { auth } from "@clerk/nextjs";
+
+import { currentUser ,auth} from '@clerk/nextjs/server';
 
 import prismadb from "@/lib/prismadb";
 import { MAX_FREE_COUNTS } from "@/constants";

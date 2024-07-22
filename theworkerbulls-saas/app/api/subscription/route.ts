@@ -1,4 +1,5 @@
-import { auth, currentUser } from "@clerk/nextjs";
+
+import { currentUser ,auth} from '@clerk/nextjs/server';
 import { NextResponse } from "next/server";
 
 import prismadb from "@/lib/prismadb";

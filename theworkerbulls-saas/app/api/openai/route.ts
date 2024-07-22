@@ -1,4 +1,5 @@
-import { auth } from "@clerk/nextjs";
+
+import { currentUser ,auth} from '@clerk/nextjs/server';
 import { NextResponse } from "next/server";
 import { Configuration, OpenAIApi } from "openai";
 
