@@ -50,7 +50,7 @@ function PriceWrapper({ children }: { children: ReactNode }) {
     </Box>
   );
 }
-const Profile = () => {
+const Profile = ({user}:any) => {
   const [sub, SetSub] = useState()
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState('')
@@ -58,7 +58,7 @@ const Profile = () => {
   const [loaded, SetDisabled] = useState(true)
 
 
-  let  user
+ 
   // const router = useRouter();
   
   // const user = auth();
@@ -68,7 +68,7 @@ const Profile = () => {
     const fetchData = async () => {
       const hasSub = await fetch(`/api/subscription`)
       const _hasSub = await hasSub.json()
-      user = await currentUser();
+    
       
       SetLInk(_hasSub?.link)
       SetSub(_hasSub?.sub)
