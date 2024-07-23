@@ -306,7 +306,12 @@ const Profile = ({user}:any) => {
 
                       </List>
                       <Box w="80%" pt={7}>
-                      {sub?(         <Button  
+                      <Button  
+                        variant='outline'
+                       colorScheme="red">
+                          Manage
+                        </Button>
+                      {/* {sub?(         <Button  
                         variant='outline'
                             as={NextLink} 
                              href={link ? String(link) : '#'}w="full" colorScheme="red">
@@ -316,7 +321,7 @@ const Profile = ({user}:any) => {
                             as={NextLink} 
                              href={link ? String(link[0]) : '#'}w="full" colorScheme="red">
                           Subscribe
-                        </Button>)}
+                        </Button>)} */}
                       </Box>
                     </VStack>
                   </Box>
