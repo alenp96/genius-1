@@ -67,14 +67,17 @@ export async function getOnlineSubscription() {
 }
 export async function createCheckoutLink(customer: string,user:string) {
   const { userId } = auth();
+  const sub =await stripe.subscriptions.list()
   const _user = await prismadb.userSubscription.findUnique({
     //@ts-ignore
     where: { userId: user },
   });
+  const result = sub?.data?.find( ({ customer }) => customer === _user?.stripeCustomerId )
+  
 
   
 
-  if(_user?.stripeSubscriptionId ){
+  if(result){
   //   const sub =await stripe.subscriptions.retrieve(
   //     _user?.stripeSubscriptionId as string
  
