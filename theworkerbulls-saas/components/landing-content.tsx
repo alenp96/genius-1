@@ -1,5 +1,6 @@
 'use client'
 import { ReactNode } from 'react';
+import Link from "next/link"
 import {
   Box,
   Flex,
@@ -196,9 +197,12 @@ export default function LandingContent() {
         
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red">
-                  Start chatting
-                </Button>
+              <Link href={"/sign-up"}>
+          <Button  w="full" colorScheme="red">
+          Start chatting
+          </Button>
+        </Link>
+         
               </Box>
             </VStack>
           </Box>
@@ -258,9 +262,11 @@ export default function LandingContent() {
         
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red">
-                  Start chatting
-                </Button>
+              <Link href={"/sign-up"}>
+          <Button  w="full" colorScheme="red">
+          Start chatting
+          </Button>
+        </Link>
               </Box>
             </VStack>
           </Box>
