@@ -29,6 +29,7 @@ import { Empty } from "@/components/ui/empty";
 const ConversationPage = () => {
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
+  const [disabled, SetIsDisabled] = useState(false)
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
 Key aspects of your role:
@@ -67,6 +68,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
   const FormAction= async(formData:any)=>{
     SetIsLoading(true)
+    SetIsDisabled(true)
+    SetIsDisabled(false)
     console.log('formdata',formData)
    
     const userMessage:any =[ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
@@ -158,6 +161,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             style={{marginLeft:'40%' ,width:'20%'}}
              //@ts-ignore
             colorScheme='teal'
+            disabled={disabled}
             isLoading={props.isSubmitting}
             type='submit'
           >
