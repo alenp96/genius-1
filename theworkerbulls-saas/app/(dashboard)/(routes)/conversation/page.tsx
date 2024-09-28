@@ -72,7 +72,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [isLoading, SetIsLoading] = useState(false)
-  const [prompt, SetPrompt] = useState<string|null>('')
+  const [prompt, SetPrompt] = useState<string|undefined>('')
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -102,7 +102,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
   const onSubmit = async (formData:any) => {
     SetIsLoading(true)
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: formData.get('prompt') };
+      const userMessage: ChatCompletionRequestMessage = { role: "user", content: prompt };
       const newMessages = [...messages, userMessage];
       const newMessages1 = [...message1, userMessage];
 
