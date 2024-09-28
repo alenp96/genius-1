@@ -39,6 +39,7 @@ import { Hearts } from 'react-loader-spinner';
 const ConversationPage = () => {
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
+  const [disabled, SetIsDisabled] = useState(false)
   const [link, SetLInk] = useState()
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
@@ -93,6 +94,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
   const FormAction= async(formData:any)=>{
     SetIsLoading(true)
+    SetIsDisabled(true)
     console.log('formdata',formData)
    
     const userMessage:any =[ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
@@ -131,6 +133,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     setMessages((current) => [...current,  response.data]);
     console.log('here',messages)
     SetIsLoading(false)
+    SetIsDisabled(false)
   }
   if (loaded) {
     return (
@@ -214,6 +217,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             style={{marginLeft:'40%' ,width:'20%'}}
              //@ts-ignore
             colorScheme='teal'
+            disabled={disabled}
             isLoading={props.isSubmitting}
             type='submit'
           >
@@ -261,32 +265,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
 
     </div>
-    <div className="space-y-4 mt-4">
-            {isLoading && (
-              <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-                <Loader />
-              </div>
-            )}
-            {messages.length === 0 && !isLoading && (
-              <Empty label="No conversation started." />
-            )}
-            <div className="flex flex-col-reverse gap-y-4">
-              {messages.map((message) => (
-                <div
-                  key={message.content}
-                  className={cn(
-                    "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                    message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-                  )}
-                >
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  <p className="text-sm">
-                    {message.content}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+ 
 
           </div>
 
