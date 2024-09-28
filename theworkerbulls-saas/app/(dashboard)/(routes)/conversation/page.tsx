@@ -71,7 +71,7 @@ When interacting with users:
 Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` }]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
-  const [isLoading, SetIsLoading] = useState(true)
+  const [isLoading, SetIsLoading] = useState(false)
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
