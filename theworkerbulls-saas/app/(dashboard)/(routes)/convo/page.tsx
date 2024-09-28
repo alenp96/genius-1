@@ -121,6 +121,8 @@ const ConversationPage = () => {
           <Button
           //@ts-ignore
             // mt={4}
+            style={{ width:'20%'}}
+             //@ts-ignore
             colorScheme='teal'
             isLoading={props.isSubmitting}
             type='submit'
