@@ -97,19 +97,30 @@ const ConversationPage = () => {
       }}
     >
       {(props) => (
-        <Form>
+        <Form     className="
+        rounded-lg 
+        border 
+        w-full 
+        p-4 
+        px-3 
+        md:px-6 
+        focus-within:shadow-sm
+        grid
+        grid-cols-12
+        gap-2
+      ">
           <Field name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
-                <FormLabel>First name</FormLabel>
-                <Input {...field} placeholder='name' />
+              
+                <Input {...field}  placeholder="How are you feeling today?"  className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
           <Button
           //@ts-ignore
-            mt={4}
+            // mt={4}
             colorScheme='teal'
             isLoading={props.isSubmitting}
             type='submit'
