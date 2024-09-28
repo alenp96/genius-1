@@ -109,7 +109,7 @@ const ConversationPage = () => {
         grid-cols-12
         gap-2
       ">
-          <Field name='name' >
+          <Field style={{ width:'80%'}} name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
