@@ -71,7 +71,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     const newMessages1 = [...message1, userMessage];
     const response = await axios.post('/api/conversation', { messages: userMessage })
     console.log('here',response.data)
-    setMessages((current) => [...current,  response.data]);
+    setMessages((current) => [...current, userMessage, response.data]);
+    setMessage1((current) => [...current, userMessage, response.data]);
     console.log('here',messages)
     SetIsLoading(false)
   }
