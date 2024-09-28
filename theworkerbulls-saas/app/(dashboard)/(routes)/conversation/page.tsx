@@ -59,7 +59,7 @@ const ConversationPage = () => {
       12. If asked about topics unrelated to breakups or emotional support, respond with: "I'm sorry, but I'm specialized in providing support for breakups and divorces. I can't assist with [mentioned topic]. How can I help you with your relationship or emotional concerns today?"
       
       Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData.get('prompt')}];
-    const response = await axios.post('/api/ai', { messages: userMessage })
+    const response = await axios.post('/api/conversation', { messages: userMessage })
     console.log('here',response.data)
     setMessages((current) => [...current,  response.data]);
     console.log('here',messages)
