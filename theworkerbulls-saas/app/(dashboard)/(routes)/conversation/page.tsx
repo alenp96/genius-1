@@ -71,6 +71,7 @@ When interacting with users:
 Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` }]);
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
+  const [isLoading, SetIsLoading] = useState(true)
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -95,11 +96,12 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
 
   }, [])
-  const isLoading = form.formState.isSubmitting;
+  // const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (formData:any) => {
+    SetIsLoading(true)
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
+      const userMessage: ChatCompletionRequestMessage = { role: "user", content: formData.get('prompt') };
       const newMessages = [...messages, userMessage];
       const newMessages1 = [...message1, userMessage];
 
@@ -117,6 +119,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       }
     } finally {
       router.refresh();
+      SetIsLoading(false)
     }
   }
   if (loaded) {
@@ -167,7 +170,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     
       
         {sub ? (<>        <div>
-          <Form {...form}>
+          {/* <Form {...form}> */}
             <form
               // onSubmit={form.handleSubmit(onSubmit)}
               //@ts-ignore
@@ -185,26 +188,22 @@ Remember, your purpose is to be a supportive guide through the challenging journ
                 gap-2
               "
             >
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
+        
                       <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         placeholder="How are you feeling today?"
-                        {...field}
+                        
                       />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+         
+            
+              <Button className="col-span-12 lg:col-span-2 w-full" type="submit" 
+              disabled={isLoading}
+               size="icon">
                 Chat
               </Button>
             </form>
-          </Form>
+          {/* </Form> */}
         </div>
           <div className="space-y-4 mt-4">
             {isLoading && (
