@@ -113,7 +113,7 @@ const ConversationPage = () => {
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?"  className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"/>
+                <Input {...field}  placeholder="How are you feeling today?"  className=" w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
