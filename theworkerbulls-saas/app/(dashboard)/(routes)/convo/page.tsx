@@ -69,7 +69,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     const userMessage: ChatCompletionRequestMessage = { role: "user", content: formData };
     const newMessages = [...messages, userMessage];
     const newMessages1 = [...message1, userMessage];
-    const response = await axios.post('/api/conversation', { messages: userMessage })
+    const response = await axios.post('/api/conversation', { messages: newMessages1 })
     console.log('here',response.data)
     setMessages((current) => [...current, userMessage, response.data]);
     setMessage1((current) => [...current, userMessage, response.data]);
