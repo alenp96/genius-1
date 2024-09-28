@@ -169,7 +169,9 @@ Remember, your purpose is to be a supportive guide through the challenging journ
         {sub ? (<>        <div>
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(onSubmit)}
+              // onSubmit={form.handleSubmit(onSubmit)}
+              //@ts-ignore
+              action={onSubmit}
               className="
                 rounded-lg 
                 border 
