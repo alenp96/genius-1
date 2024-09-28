@@ -99,7 +99,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData}];
     const response = await axios.post('/api/conversation', { messages: userMessage })
     console.log('here',response.data)
-    setMessages((current) => [...current,userMessage,  response.data]);
+    setMessages((current) => [...current,{ "role": "user", "content": formData},  response.data]);
     console.log('here',messages)
     SetIsLoading(false)
   }
