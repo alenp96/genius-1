@@ -109,11 +109,11 @@ const ConversationPage = () => {
       grid-cols-2
         gap-2
       ">
-          <Field style={{ width:'80%'}} name='name' >
+          <Field style={{ width:'120%'}} name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'80%'}} className="border-black md:w-full"/>
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'120%'}} className="border-black md:w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
