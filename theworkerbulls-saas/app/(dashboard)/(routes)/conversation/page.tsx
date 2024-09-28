@@ -72,6 +72,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [isLoading, SetIsLoading] = useState(false)
+  const [prompt, SetPrompt] = useState<string|null>('')
   const [customer, SetCustomer] = useState()
   const [link, SetLInk] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -109,7 +110,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       setMessages((current) => [...current, userMessage, response.data]);
       setMessage1((current) => [...current, userMessage, response.data]);
 
-      form.reset();
+      // form.reset();
     } catch (error: any) {
       console.log('error', error)
       if (error?.response?.status === 403) {
@@ -172,38 +173,35 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       
         {sub ? (<>        <div>
           {/* <Form {...form}> */}
-            <form
-              // onSubmit={form.handleSubmit(onSubmit)}
-              //@ts-ignore
-              action={onSubmit}
-              className="
-                rounded-lg 
-                border 
-                w-full 
-                p-4 
-                px-3 
-                md:px-6 
-                focus-within:shadow-sm
-                grid
-                grid-cols-12
-                gap-2
-              "
-            >
-        
-                      <Input
-                        className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="How are you feeling today?"
-                        
-                      />
-         
-            
-              <Button className="col-span-12 lg:col-span-2 w-full" type="submit" 
-              disabled={isLoading}
-               size="icon">
+          <div
+    //    onSubmit={
+    //     //@ts-ignore
+    //     saveWebsite}
+    // action={FormAction}
+    className="
+    rounded-lg 
+    border 
+    w-full 
+    p-4 
+    px-3 
+    md:px-6 
+    focus-within:shadow-sm
+    grid
+    grid-cols-12
+    gap-2
+  "
+         >
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> */}
+
+
+
+  <Input    
+  //@ts-ignore   
+    value={prompt} onChange={e => SetPrompt(e.target.value)}   placeholder="How are you feeling today?"  className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" name="prompt" type="text"/>
+  <Button className="col-span-12 lg:col-span-2 w-full" onClick={onSubmit}  size="icon">
                 Chat
               </Button>
-            </form>
+              </div>
           {/* </Form> */}
         </div>
           <div className="space-y-4 mt-4">
