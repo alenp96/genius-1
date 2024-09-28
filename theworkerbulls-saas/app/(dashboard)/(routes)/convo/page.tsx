@@ -106,7 +106,7 @@ const ConversationPage = () => {
         md:px-6 
         focus-within:shadow-sm
         grid
-        grid-cols-12
+      
         gap-2
       ">
           <Field style={{ width:'80%'}} name='name' >
