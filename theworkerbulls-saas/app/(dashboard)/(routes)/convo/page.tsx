@@ -11,15 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
-import {
-  Box,
-  Center,
-  Alert,
-  AlertIcon,
-  Link,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
 //@ts-ignore
 import { ChatCompletionRequestMessage}  from "openai";
 
@@ -32,14 +23,12 @@ import { Empty } from "@/components/ui/empty";
   FormErrorMessage,
   FormHelperText,
 } from '@chakra-ui/react'
-import { Hearts } from 'react-loader-spinner';
 
 
 
 const ConversationPage = () => {
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
-  const [link, SetLInk] = useState()
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
 Key aspects of your role:
@@ -74,22 +63,7 @@ When interacting with users:
 Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` }]);
   const router = useRouter();
   const [isLoading, SetIsLoading] = useState(false)
-  useEffect(() => {
-    const fetchData = async () => {
-      const hasSub = await fetch(`/api/subscription`)
-      const _hasSub = await hasSub.json()
-      SetLInk(_hasSub?.link)
-      SetSub(_hasSub?.sub)
-      SetDisabled(false)
-      console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
-      // console.log('has sub',hasSub)
-    }
-
-    // call the function
-    fetchData()
-
-
-  }, [])
+  
 
   const FormAction= async(formData:any)=>{
     SetIsLoading(true)
@@ -132,37 +106,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     console.log('here',messages)
     SetIsLoading(false)
   }
-  if (loaded) {
-    return (
-      <>
-        <Box
-          width={'400px'}
-          height={'400px'}
-          position={'absolute'}
-          left={['40%','20%','20%','20%']}
-          right={0}
-          top={0}
-          bottom={0}
-          margin={'auto'}
-          maxH={'100%'}
-          maxW={'100%'}
-          overflow={'auto'}
-        >
-          <Hearts
-            height="80"
-            width="80"
-            // radius="9"
-            color="red"
-            ariaLabel="loading"
 
-          /></Box>
-
-
-
-      </>
-
-    )
-  }
 
   return (
  
@@ -176,8 +120,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       />
         <div className="px-4 lg:px-8">
 
-        {sub ? (<>        <div>
-          <Formik
+      
+        <Formik
       initialValues={{ name: '' }}
       onSubmit={(values, actions) => {
         setTimeout(() => {
@@ -222,43 +166,6 @@ Remember, your purpose is to be a supportive guide through the challenging journ
         </Form>
       )}
     </Formik>
-        </div>
-          <div className="space-y-4 mt-4">
-            {isLoading && (
-              <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-                <Loader />
-              </div>
-            )}
-            {messages.length === 0 && !isLoading && (
-              <Empty label="No conversation started." />
-            )}
-            <div className="flex flex-col-reverse gap-y-4">
-              {messages.map((message) => (
-                <div
-                  key={message.content}
-                  className={cn(
-                    "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                    message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-                  )}
-                >
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  <p className="text-sm">
-                    {message.content}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div></>) : (<>
-            <Alert status='warning'>
-              <AlertIcon />
-              It looks like you don&apos;t have an active subscription. To access the chat section and enjoy all the features, please subscribe to one of our plans.
-              <Link color='teal.500' href='/profile'>
-                Subscribe Now
-              </Link>
-
-
-            </Alert></>)}
-
 
     </div>
     <div className="space-y-4 mt-4">
