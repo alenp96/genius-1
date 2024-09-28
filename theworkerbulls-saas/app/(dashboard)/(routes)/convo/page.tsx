@@ -33,7 +33,7 @@ const ConversationPage = () => {
 
   const FormAction= async(formData:any)=>{
     SetIsLoading(true)
-    console.log('formdata',formData.get('prompt'))
+    console.log('formdata',formData)
    
     const userMessage:any =[ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
       Key aspects of your role:
@@ -65,7 +65,7 @@ const ConversationPage = () => {
       11. Offer to elaborate or provide additional details if the user needs more information on a specific point.
       12. If asked about topics unrelated to breakups or emotional support, respond with: "I'm sorry, but I'm specialized in providing support for breakups and divorces. I can't assist with [mentioned topic]. How can I help you with your relationship or emotional concerns today?"
       
-      Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData.get('prompt')}];
+      Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData}];
     const response = await axios.post('/api/conversation', { messages: userMessage })
     console.log('here',response.data)
     setMessages((current) => [...current,  response.data]);
@@ -91,7 +91,7 @@ const ConversationPage = () => {
       initialValues={{ name: '' }}
       onSubmit={(values, actions) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
+          FormAction(values.name)
           actions.setSubmitting(false)
         }, 1000)
       }}
