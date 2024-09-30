@@ -16,6 +16,7 @@ import {
   Center,
   Alert,
   AlertIcon,
+  Text,
   Link,
   AlertTitle,
   AlertDescription,
@@ -236,6 +237,14 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             {messages.length === 0 && !isLoading && (
               <Empty label="No conversation started." />
             )}
+                   {messages.length === 0 && !isLoading && (
+                <div className="p-8 rounded-lg w-full bg-muted">
+                  <p>Hi there. I'm here to listen and offer support during this challenging time. Feel free to tell me about your situation – what happened with your breakup? I'm here to help you process your feelings and thoughts. There's no judgment, just a space for you to express yourself. Whenever you're ready, go ahead and share your story.</p>
+                  <Text fontSize="xs" color="gray.500" mt={2}>
+                    Disclaimer: The AI Breakup Advisor is an artificial intelligence chatbot designed to offer support during breakups. It is not a substitute for professional mental health services or medical advice. While we strive for helpful and empathetic responses, please remember that this AI lacks real emotions and personal experience. It may occasionally provide inaccurate or inappropriate advice, so always use your own judgment. Your privacy is important to us; review our privacy policy to understand how your data is used. This service is intended for users 18 and older and should not be used in emergencies. By using the AI Breakup Advisor, you acknowledge these limitations and agree to use the app responsibly. Your well-being is our priority – if you're experiencing severe distress, please seek professional help.
+                  </Text>
+                </div>
+              )}
             <div className="flex flex-col-reverse gap-y-4">
               {messages.map((message) => (
                 <div
