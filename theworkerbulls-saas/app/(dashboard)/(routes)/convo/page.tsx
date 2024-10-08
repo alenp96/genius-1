@@ -104,9 +104,12 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       12. If asked about topics unrelated to breakups or emotional support, respond with: "I'm sorry, but I'm specialized in providing support for breakups and divorces. I can't assist with [mentioned topic]. How can I help you with your relationship or emotional concerns today?"
       
       Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData}];
+      const userMessage1:any =[ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenge
+        Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` } ,{ "role": "user", "content": formData}];
     const response = await axios.post('/api/conversation', { messages: userMessage })
     console.log('here',response.data)
-    setMessages((current) => [...current,  response.data]);
+    // setMessages((current) => [...current,  response.data]);
+    setMessages((current) => [...current, userMessage1]);
     console.log('here',messages)
     SetIsLoading(false)
   }
