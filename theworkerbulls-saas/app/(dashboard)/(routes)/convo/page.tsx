@@ -30,7 +30,8 @@ const ConversationPage = () => {
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [disabled, SetIsDisabled] = useState(false)
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces.` } ,{ "role": "user", "content": "user"}]);
+  //@ts-ignore
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([ {  "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces.`,"refusal": null } ,{ "role": "user", "content": "user","refusal": null}]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
 Key aspects of your role:
 1. Offer 24/7 emotional support and practical guidance.
