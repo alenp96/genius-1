@@ -81,22 +81,22 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       prompt: ""
     }
   });
-  useEffect(() => {
-    const fetchData = async () => {
-      const hasSub = await fetch(`/api/subscription`)
-      const _hasSub = await hasSub.json()
-      SetLInk(_hasSub?.link)
-      SetSub(_hasSub?.sub)
-      SetDisabled(false)
-      console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
-      // console.log('has sub',hasSub)
-    }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const hasSub = await fetch(`/api/subscription`)
+  //     const _hasSub = await hasSub.json()
+  //     SetLInk(_hasSub?.link)
+  //     SetSub(_hasSub?.sub)
+  //     SetDisabled(false)
+  //     console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
+  //     // console.log('has sub',hasSub)
+  //   }
 
-    // call the function
-    fetchData()
+  //   // call the function
+  //   fetchData()
 
 
-  }, [])
+  // }, [])
   // const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (formData:any) => {
@@ -172,7 +172,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       <div className="px-4 lg:px-8">
     
       
-        {sub ? (<>        <div>
+        <> 
+               <div>
           {/* <Form {...form}> */}
           <div
     //    onSubmit={
@@ -230,16 +231,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
                 </div>
               ))}
             </div>
-          </div></>) : (<>
-            <Alert status='warning'>
-              <AlertIcon />
-              It looks like you don&apos;t have an active subscription. To access the chat section and enjoy all the features, please subscribe to one of our plans.
-              <Link color='teal.500' href='/profile'>
-                Subscribe Now
-              </Link>
-
-
-            </Alert></>)}
+          </div></>
+ 
         <></>
 
       </div>
