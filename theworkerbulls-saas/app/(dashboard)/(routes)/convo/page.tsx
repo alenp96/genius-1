@@ -114,8 +114,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       var tempData:any = [];
       tempData.push( userMessage );
       tempData.push(mess)
-      setMessages((current) => [...current, tempData]);
-    // setMessages((current) => [...current,  response.data]);
+      setMessages((current) => [...current, userMessage]);
+    setMessages((current) => [...current,  response.data]);
     
 
   
