@@ -32,6 +32,7 @@ const ConversationPage = () => {
   const [disabled, SetIsDisabled] = useState(false)
   //@ts-ignore
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [messages2, setMessages2] = useState<ChatCompletionRequestMessage[]>([]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
 Key aspects of your role:
 1. Offer 24/7 emotional support and practical guidance.
@@ -114,14 +115,14 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       var tempData:any = [];
       tempData.push( userMessage );
       tempData.push(mess)
-      setMessages((current) => [...current, tempData.flat()]);
-    // setMessages((current) => [...current,  response.data]);
+      setMessages((current) => [...current, tempData]);
+    setMessages2((current) => [...current,  tempData.flat()]);
     
 
   
     SetIsLoading(false)
   }
-  console.log('messages',messages)
+  console.log('messages',messages2)
 
   return (
  
