@@ -108,8 +108,12 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
       const response = await axios.post('/api/conversation', { messages: newMessages1 });
       console.log('response',response.data)
-      // setMessages((current) => [...current, userMessage, response.data]);
-      // setMessage1((current) => [...current, userMessage, response.data]);
+      var tempData:any = [];
+      tempData.push(userMessage)
+      tempData.push(response.data)
+
+      setMessages((current) => [...current, tempData]);
+      setMessage1((current) => [...current, tempData]);
 
       // form.reset();
     } catch (error: any) {
