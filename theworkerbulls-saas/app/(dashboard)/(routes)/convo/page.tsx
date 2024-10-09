@@ -118,10 +118,10 @@ Remember, your purpose is to be a supportive guide through the challenging journ
     // setMessages((current) => [...current,  response.data]);
     
 
-    console.log('messages',tempData)
+  
     SetIsLoading(false)
   }
-
+  console.log('messages',messages)
 
   return (
  
