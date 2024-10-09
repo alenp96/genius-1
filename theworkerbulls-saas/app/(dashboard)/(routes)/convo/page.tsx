@@ -125,37 +125,37 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       SetIsLoading(false)
     }
   }
-  if (loaded) {
-    return (
-      <>
-        <Box
-          width={'400px'}
-          height={'400px'}
-          position={'absolute'}
-          left={['40%','20%','20%','20%']}
-          right={0}
-          top={0}
-          bottom={0}
-          margin={'auto'}
-          maxH={'100%'}
-          maxW={'100%'}
-          overflow={'auto'}
-        >
-          <Hearts
-            height="80"
-            width="80"
-            // radius="9"
-            color="red"
-            ariaLabel="loading"
+  // if (loaded) {
+  //   return (
+  //     <>
+  //       <Box
+  //         width={'400px'}
+  //         height={'400px'}
+  //         position={'absolute'}
+  //         left={['40%','20%','20%','20%']}
+  //         right={0}
+  //         top={0}
+  //         bottom={0}
+  //         margin={'auto'}
+  //         maxH={'100%'}
+  //         maxW={'100%'}
+  //         overflow={'auto'}
+  //       >
+  //         <Hearts
+  //           height="80"
+  //           width="80"
+  //           // radius="9"
+  //           color="red"
+  //           ariaLabel="loading"
 
-          /></Box>
+  //         /></Box>
 
 
 
-      </>
+  //     </>
 
-    )
-  }
+  //   )
+  // }
   //   if (!loaded && !sub)  {
   //     router.push('/profile');
   // }
