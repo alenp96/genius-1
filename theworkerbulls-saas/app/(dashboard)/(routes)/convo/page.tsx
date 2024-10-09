@@ -114,14 +114,14 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       var tempData:any = [];
       tempData.push( userMessage );
       tempData.push(mess)
-      setMessages((current) => [...current, tempData]);
+      setMessages((current) => [...current, tempData.flat()]);
     // setMessages((current) => [...current,  response.data]);
     
 
   
     SetIsLoading(false)
   }
-  console.log('messages',messages.flat())
+  console.log('messages',messages)
 
   return (
  
@@ -196,7 +196,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
               <Empty label="No conversation started." />
             )}
             <div className="flex flex-col-reverse gap-y-4">
-              {messages.flat().map((message) => (
+              {messages.map((message) => (
                 <div
                   key={message.content}
                   className={cn(
