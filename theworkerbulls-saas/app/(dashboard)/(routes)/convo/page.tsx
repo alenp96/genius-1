@@ -110,15 +110,15 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
       const response = await axios.post('/api/conversation', { messages: newMessages1 });
      
-  //     const mess= await response.data
-  //     var tempData = [];
-  //     tempData.push( userMessage );
-  //     tempData.push(mess)
+      const mess= await response.data
+      var tempData = [];
+      tempData.push( userMessage );
+      tempData.push(mess)
   //     setMessages((current) => [...current, ]);
     // setMessages((current) => [...current,  response.data]);
     
 
-    console.log('here',response)
+    console.log('messages',tempData)
     SetIsLoading(false)
   }
 
