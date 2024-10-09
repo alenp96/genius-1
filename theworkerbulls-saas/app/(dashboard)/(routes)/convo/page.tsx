@@ -1,42 +1,36 @@
 "use client";
 
-import * as z from "zod";
-import axios from "axios";
+import React, { ReactNode, useState,useEffect } from "react";
+import App from "@/components/App";
 import { MessageSquare } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
-import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { ChatCompletionRequestMessage } from "openai";
-
-import { BotAvatar } from "@/components/bot-avatar";
+import axios from "axios";
+import { Input } from "@/components/ui/input";
+import { UserAvatar } from "@/components/user-avatar";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { cn } from "@/lib/utils";
-import {
-  Box,
-  Center,
-  Alert,
-  AlertIcon,
-  Link,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
-import { Spinner } from '@chakra-ui/react'
 import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { Empty } from "@/components/ui/empty";
-import { useProModal } from "@/hooks/use-pro-modal";
-import { Hearts } from 'react-loader-spinner';
+import { cn } from "@/lib/utils";
+import { BotAvatar } from "@/components/bot-avatar";
+//@ts-ignore
+import { ChatCompletionRequestMessage}  from "openai";
 
-import { formSchema } from "./constants";
+import { useRouter } from "next/navigation";
+import { Empty } from "@/components/ui/empty";
+ import { Field, Form, Formik } from 'formik';
+ import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from '@chakra-ui/react'
+
+
 
 const ConversationPage = () => {
-  const router = useRouter();
-  const proModal = useProModal();
+  const [sub, SetSub] = useState()
+  const [loaded, SetDisabled] = useState(true)
+  const [disabled, SetIsDisabled] = useState(false)
+  //@ts-ignore
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [message1, setMessage1] = useState<ChatCompletionRequestMessage[]>([{ "role": "system", "content": `You are AIBreakupAdvisor, a compassionate AI assistant designed to support people going through breakups or divorces. Your primary goal is to provide empathetic, practical, and personalized advice to help users navigate their emotional challenges and work towards healing and personal growth.
 Key aspects of your role:
@@ -69,148 +63,130 @@ When interacting with users:
 12. If asked about topics unrelated to breakups or emotional support, respond with: "I'm sorry, but I'm specialized in providing support for breakups and divorces. I can't assist with [mentioned topic]. How can I help you with your relationship or emotional concerns today?"
 
 Remember, your purpose is to be a supportive guide through the challenging journey of heartbreak and recovery. Always prioritize the user's emotional well-being and personal growth in your responses.` }]);
-  const [sub, SetSub] = useState()
-  const [loaded, SetDisabled] = useState(true)
+  const router = useRouter();
   const [isLoading, SetIsLoading] = useState(false)
-  const [prompt, SetPrompt] = useState<string|undefined>('')
-  const [customer, SetCustomer] = useState()
-  const [link, SetLInk] = useState()
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: ""
-    }
-  });
+  const [isSubmitting, SetIsSubmiting] = useState(false)
   // useEffect(() => {
+    
   //   const fetchData = async () => {
-  //     const hasSub = await fetch(`/api/subscription`)
-  //     const _hasSub = await hasSub.json()
-  //     SetLInk(_hasSub?.link)
-  //     SetSub(_hasSub?.sub)
-  //     SetDisabled(false)
-  //     console.log('in useeffect', _hasSub?.link, _hasSub?.sub)
-  //     // console.log('has sub',hasSub)
+     
+
+  //     SetIsLoading(true)
+  //     SetIsDisabled(true)
+  //     SetIsDisabled(false)
+   
+  //     const userMessage: ChatCompletionRequestMessage = { role: "user", "content": "hi" };
+  //     const newMessages = [...messages, userMessage];
+  //     const newMessages1 = [...message1, userMessage];
+
+  //     const response = await axios.post('/api/conversation', { messages: newMessages1 });
+     
+  //     const mess= await response.data
+  //     var tempData = [];
+  //     tempData.push( userMessage );
+  //     tempData.push(mess)
+  //     setMessages((current) => [...current, ]);
+  
+
+  //     // SetIsLoading(false)
+  //     console.log('has sub',tempData)
   //   }
 
   //   // call the function
   //   fetchData()
 
 
-  // }, [])
-  // const isLoading = form.formState.isSubmitting;
+  // }, [isSubmitting])
+  
 
-  const onSubmit = async (formData:any) => {
+  const FormAction= async(formData:any)=>{
     SetIsLoading(true)
-    try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: prompt };
+    SetIsDisabled(true)
+    SetIsDisabled(false)
+    console.log('formdata',formData)
+         const userMessage: ChatCompletionRequestMessage = { role: "user", "content": formData };
       const newMessages = [...messages, userMessage];
       const newMessages1 = [...message1, userMessage];
 
       const response = await axios.post('/api/conversation', { messages: newMessages1 });
-      console.log('response',response.data)
-      var tempData:any = [];
-      tempData.push(userMessage)
-      tempData.push(response.data)
+     
+  //     const mess= await response.data
+  //     var tempData = [];
+  //     tempData.push( userMessage );
+  //     tempData.push(mess)
+  //     setMessages((current) => [...current, ]);
+    // setMessages((current) => [...current,  response.data]);
+    
 
-      setMessages((current) => [...current, tempData]);
-      setMessage1((current) => [...current, tempData]);
-
-      // form.reset();
-    } catch (error: any) {
-      console.log('error', error)
-      if (error?.response?.status === 403) {
-        proModal.onOpen();
-      } else {
-        toast.error("Something went wrong.");
-      }
-    } finally {
-      // router.refresh();
-      console.log('here')
-      SetIsLoading(false)
-    }
+    console.log('here',response)
+    SetIsLoading(false)
   }
-  // if (loaded) {
-  //   return (
-  //     <>
-  //       <Box
-  //         width={'400px'}
-  //         height={'400px'}
-  //         position={'absolute'}
-  //         left={['40%','20%','20%','20%']}
-  //         right={0}
-  //         top={0}
-  //         bottom={0}
-  //         margin={'auto'}
-  //         maxH={'100%'}
-  //         maxW={'100%'}
-  //         overflow={'auto'}
-  //       >
-  //         <Hearts
-  //           height="80"
-  //           width="80"
-  //           // radius="9"
-  //           color="red"
-  //           ariaLabel="loading"
 
-  //         /></Box>
-
-
-
-  //     </>
-
-  //   )
-  // }
-  //   if (!loaded && !sub)  {
-  //     router.push('/profile');
-  // }
 
   return (
+ 
     <div className="mt-6">
-      <Heading
+    <Heading
         title="Conversation"
         description="Our most advanced conversation model."
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
-      <div className="px-4 lg:px-8">
-    
+        <div className="px-4 lg:px-8">
+
       
-        <> 
-               <div>
-          {/* <Form {...form}> */}
-          <div
-    //    onSubmit={
-    //     //@ts-ignore
-    //     saveWebsite}
-    // action={FormAction}
-    className="
-    rounded-lg 
-    border 
-    w-full 
-    p-4 
-    px-3 
-    md:px-6 
-    focus-within:shadow-sm
-    grid
-    grid-cols-12
-    gap-2
-  "
-         >
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> */}
+        <Formik
+      initialValues={{ name: '' }}
+      onSubmit={(values, actions) => {
+        SetIsSubmiting(true)
+       
+        setTimeout(() => {
+          FormAction(values.name)
+          actions.setSubmitting(false)
+        }, 1000)
+      }}
+    >
+      {(props) => (
+        <Form     className="
+        rounded-lg 
+        border 
+        w-full 
+        p-4 
+        px-3 
+        md:px-6 
+        focus-within:shadow-sm
+        grid
+      grid-cols-2
+        gap-6
+      ">
+          <Field style={{ width:'140%'}} name='name' >
+            {({ field, form }:any) => (
+              <FormControl isInvalid={form.errors.name && form.touched.name}>
+              
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'140%'}} className="border-black md:w-full"/>
+                <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+              </FormControl>
+            )}
+          </Field>
+          <Button
+          //@ts-ignore
+            // mt={4}
+            style={{marginLeft:'40%' ,width:'20%'}}
+             //@ts-ignore
+            colorScheme='teal'
+            disabled={disabled}
+            isLoading={props.isSubmitting}
+            type='submit'
+          >
+            Submit
+          </Button>
+        </Form>
+      )}
+    </Formik>
 
-
-
-  <Input    
-  //@ts-ignore   
-    value={prompt} onChange={e => SetPrompt(e.target.value)}   placeholder="How are you feeling today?"  className=" col-span-12 lg:col-span-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" name="prompt" type="text"/>
-  <Button className="col-span-12 lg:col-span-2 w-full" onClick={onSubmit}  size="icon">
-                Chat
-              </Button>
-              </div>
-          {/* </Form> */}
-        </div>
-          <div className="space-y-4 mt-4">
+    </div>
+    <div className="space-y-4 mt-4">
             {isLoading && (
               <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
                 <Loader />
@@ -235,14 +211,12 @@ Remember, your purpose is to be a supportive guide through the challenging journ
                 </div>
               ))}
             </div>
-          </div></>
- 
-        <></>
+          </div>
 
-      </div>
-    </div>
+          </div>
+
+ 
   );
 }
 
 export default ConversationPage;
-
