@@ -111,10 +111,10 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       const response = await axios.post('/api/conversation', { messages: newMessages1 });
      
       const mess= await response.data
-      var tempData = [];
+      var tempData:any = [];
       tempData.push( userMessage );
       tempData.push(mess)
-  //     setMessages((current) => [...current, ]);
+      setMessages((current) => [...current, tempData]);
     // setMessages((current) => [...current,  response.data]);
     
 
