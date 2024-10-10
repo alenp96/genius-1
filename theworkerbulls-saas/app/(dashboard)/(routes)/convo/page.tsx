@@ -117,7 +117,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       tempData.push(mess)
       setMessages((current) => [...current, tempData]);
       var m = messages.flat()
-    setMessages2((current) => [...current,...m  ]);
+
+ 
     
 
   
@@ -198,7 +199,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
               <Empty label="No conversation started." />
             )}
             <div className="flex flex-col-reverse gap-y-4">
-              {messages2.map((message) => (
+              {messages?.map((message) => (
                 <div
                   key={message.content}
                   className={cn(
