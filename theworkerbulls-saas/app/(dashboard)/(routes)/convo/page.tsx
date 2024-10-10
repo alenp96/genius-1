@@ -116,7 +116,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       tempData.push( userMessage );
       tempData.push(mess)
       setMessages((current) => [...current, tempData]);
-    setMessages2((current) => [...current,  tempData.flat()]);
+      var m = messages.flat()
+    setMessages2((current) => [...current,...m  ]);
     
 
   
