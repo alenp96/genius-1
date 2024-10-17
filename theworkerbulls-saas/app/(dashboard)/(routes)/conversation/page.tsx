@@ -182,11 +182,11 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       grid-cols-2
         gap-6
       ">
-          <Field style={{ width:'160%'}} name='name' >
+          <Field style={{ width:'140%'}} name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'100%'}} className="border-black md:w-full"/>
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'180%'}} className="border-black md:w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
@@ -194,7 +194,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
           <Button
           //@ts-ignore
             // mt={4}
-            style={{marginLeft:'40%' ,width:'20%'}}
+            style={{marginLeft:'80%' ,width:'20%'}}
              //@ts-ignore
             colorScheme='teal'
             disabled={disabled}
