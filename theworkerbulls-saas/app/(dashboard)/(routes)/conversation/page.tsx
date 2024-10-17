@@ -184,11 +184,10 @@ Remember, your purpose is to be a supportive guide through the challenging journ
         {sub ? (<>        <div>
           <Formik
       initialValues={{ name: '' }}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          FormAction(values.name)
-          actions.setSubmitting(false)
-        }, 1000)
+      onSubmit={(values, { resetForm }) => {
+       
+        FormAction(values.name)
+         resetForm()
       }}
     >
       {(props) => (

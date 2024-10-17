@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
-import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
+import { Avatar, AvatarBadge, AvatarGroup,Text } from '@chakra-ui/react'
 //@ts-ignore
 import { ChatCompletionRequestMessage}  from "openai";
 
@@ -130,6 +130,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       tempData.push(mess)
       setMessages((current) =>  [...current, userMessage,mess]);
       var m = messages.flat()
+      set
 
  
     
@@ -211,13 +212,21 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             {messages.length === 0 && !isLoading && (
               <Empty label="No conversation started." />
             )}
+                               {messages.length === 0 && !isLoading && (
+                <div className="p-8 rounded-lg w-full bg-muted">
+                  <p>Hi there. I&apos;m here to listen and offer support during this challenging time. Feel free to tell me about your situation – what happened with your breakup? I&apos;m here to help you process your feelings and thoughts. There&apos;s no judgment, just a space for you to express yourself. Whenever you&apos;re ready, go ahead and share your story.</p>
+                  <Text fontSize="xs" color="gray.500" mt={2}>
+                    Disclaimer: The AI Breakup Advisor is an artificial intelligence chatbot designed to offer support during breakups. It is not a substitute for professional mental health services or medical advice. While we strive for helpful and empathetic responses, please remember that this AI lacks real emotions and personal experience. It may occasionally provide inaccurate or inappropriate advice, so always use your own judgment. Your privacy is important to us; review our privacy policy to understand how your data is used. This service is intended for users 18 and older and should not be used in emergencies. By using the AI Breakup Advisor, you acknowledge these limitations and agree to use the app responsibly. Your well-being is our priority – if you&apos;re experiencing severe distress, please seek professional help.
+                  </Text>
+                </div>
+              )}
             <div className="flex flex-col-reverse gap-y-4">
 {messages.length >0 ?(<>{messages.map((message,index)=>(<> 
    <div       className={cn(
                     "p-8 w-full flex items-start gap-x-8 rounded-lg",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
                   )}>
-    {message.role === "user" ?     <Avatar name='me e'  />
+    {message.role === "user" ?     <Avatar size='sm' name='me e'  />
  : <BotAvatar />}         <p className="text-sm">
                     {message.content}
                   </p>  
