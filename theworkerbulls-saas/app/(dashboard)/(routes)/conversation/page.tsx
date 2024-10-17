@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
+import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 import {
   Box,
   Center,
@@ -248,15 +249,15 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             <div className="flex flex-col-reverse gap-y-4">
               {messages.map((message) => (
                 <div
-                  key={message.content}
+                  key={message?.content}
                   className={cn(
                     "p-8 w-full flex items-start gap-x-8 rounded-lg",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
                   )}
                 >
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                  {message.role === "user" ?  <Avatar name='me e'  /> : <BotAvatar />}
                   <p className="text-sm">
-                    {message.content}
+                    {message?.content}
                   </p>
                 </div>
               ))}

@@ -1,16 +1,19 @@
 "use client";
+// import { currentUser } from '@clerk/nextjs/server';
 
 import React, { ReactNode, useState,useEffect } from "react";
 import App from "@/components/App";
 import { MessageSquare } from "lucide-react";
 import axios from "axios";
 import { Input } from "@/components/ui/input";
+import { useUser } from '@clerk/clerk-react'
 import { UserAvatar } from "@/components/user-avatar";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
+import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 //@ts-ignore
 import { ChatCompletionRequestMessage}  from "openai";
 
@@ -27,6 +30,8 @@ import { Empty } from "@/components/ui/empty";
 
 
 const ConversationPage = () => {
+  // const user = await currentUser();
+  const { isSignedIn, user, isLoaded } = useUser()
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [disabled, SetIsDisabled] = useState(false)
@@ -98,6 +103,14 @@ Remember, your purpose is to be a supportive guide through the challenging journ
 
 
   // }, [isSubmitting])
+  useEffect(() => {
+    
+
+
+  
+
+
+  }, [messages])
   
 
   const FormAction= async(formData:any)=>{
@@ -115,7 +128,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       var tempData:any = [];
       tempData.push( userMessage );
       tempData.push(mess)
-      setMessages((current) => [...current, tempData]);
+      setMessages((current) =>  [...current, userMessage,mess]);
       var m = messages.flat()
 
  
@@ -124,7 +137,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
   
     SetIsLoading(false)
   }
-  console.log('messages',messages2)
+  console.log('messages',messages)
 
   return (
  
@@ -199,20 +212,21 @@ Remember, your purpose is to be a supportive guide through the challenging journ
               <Empty label="No conversation started." />
             )}
             <div className="flex flex-col-reverse gap-y-4">
-              {messages?.map((message) => (
-                <div
-                  key={message.content}
-                  className={cn(
+{messages.length >0 ?(<>{messages.map((message,index)=>(<> 
+   <div       className={cn(
                     "p-8 w-full flex items-start gap-x-8 rounded-lg",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-                  )}
-                >
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  <p className="text-sm">
+                  )}>
+    {message.role === "user" ?     <Avatar name='me e'  />
+ : <BotAvatar />}         <p className="text-sm">
                     {message.content}
-                  </p>
-                </div>
-              ))}
+                  </p>  
+    </div>
+  </>
+  
+  
+  ))}</>):(<></>)}
+
             </div>
           </div>
 
