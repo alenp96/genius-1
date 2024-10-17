@@ -203,11 +203,11 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       grid-cols-2
         gap-6
       ">
-          <Field style={{ width:'140%'}} name='name' >
+          <Field style={{ width:'160%'}} name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'140%'}} className="border-black md:w-full"/>
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'100%'}} className="border-black md:w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}

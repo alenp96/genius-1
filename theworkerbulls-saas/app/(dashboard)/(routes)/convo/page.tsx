@@ -130,12 +130,8 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       tempData.push(mess)
       setMessages((current) =>  [...current, userMessage,mess]);
       var m = messages.flat()
-      set
-
- 
-    
-
   
+    
     SetIsLoading(false)
   }
   console.log('messages',messages)
@@ -155,13 +151,10 @@ Remember, your purpose is to be a supportive guide through the challenging journ
       
         <Formik
       initialValues={{ name: '' }}
-      onSubmit={(values, actions) => {
+      onSubmit={(values, { resetForm }) => {
         SetIsSubmiting(true)
-       
-        setTimeout(() => {
-          FormAction(values.name)
-          actions.setSubmitting(false)
-        }, 1000)
+        FormAction(values.name)
+        resetForm()
       }}
     >
       {(props) => (
@@ -181,7 +174,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'140%'}} className="border-black md:w-full"/>
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'180%'}} className="border-black md:w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
@@ -189,7 +182,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
           <Button
           //@ts-ignore
             // mt={4}
-            style={{marginLeft:'40%' ,width:'20%'}}
+            style={{marginLeft:'80%' ,width:'20%'}}
              //@ts-ignore
             colorScheme='teal'
             disabled={disabled}
@@ -212,7 +205,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
             {messages.length === 0 && !isLoading && (
               <Empty label="No conversation started." />
             )}
-                               {messages.length === 0 && !isLoading && (
+                               {messages.length > 0 && !isLoading && (
                 <div className="p-8 rounded-lg w-full bg-muted">
                   <p>Hi there. I&apos;m here to listen and offer support during this challenging time. Feel free to tell me about your situation – what happened with your breakup? I&apos;m here to help you process your feelings and thoughts. There&apos;s no judgment, just a space for you to express yourself. Whenever you&apos;re ready, go ahead and share your story.</p>
                   <Text fontSize="xs" color="gray.500" mt={2}>
@@ -226,7 +219,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
                     "p-8 w-full flex items-start gap-x-8 rounded-lg",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
                   )}>
-    {message.role === "user" ?     <Avatar size='sm' name='me e'  />
+    {message.role === "user" ?     <Avatar size='xs' name='me e'  />
  : <BotAvatar />}         <p className="text-sm">
                     {message.content}
                   </p>  
