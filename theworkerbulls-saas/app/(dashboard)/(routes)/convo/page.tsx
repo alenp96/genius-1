@@ -32,6 +32,7 @@ import { Empty } from "@/components/ui/empty";
 const ConversationPage = () => {
   // const user = await currentUser();
   const { isSignedIn, user, isLoaded } = useUser()
+  
   const [sub, SetSub] = useState()
   const [loaded, SetDisabled] = useState(true)
   const [disabled, SetIsDisabled] = useState(false)
