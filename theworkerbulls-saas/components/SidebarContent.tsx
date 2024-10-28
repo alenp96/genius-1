@@ -57,7 +57,7 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-    className={'space-y-4  py-4 flex flex-col h-full bg-[#111827] text-white'}
+    className={'space-y-4  py-4  h-full bg-[#111827] text-white'}
       transition="3s ease"
       bg={'#111827'}
       borderRight="1px"

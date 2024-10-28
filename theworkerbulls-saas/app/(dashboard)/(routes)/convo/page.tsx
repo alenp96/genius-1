@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
-import { Avatar, AvatarBadge, AvatarGroup,Text } from '@chakra-ui/react'
+import { Avatar, AvatarBadge, AvatarGroup,Text,Box } from '@chakra-ui/react'
 //@ts-ignore
 import { ChatCompletionRequestMessage}  from "openai";
 
@@ -180,11 +180,13 @@ Remember, your purpose is to be a supportive guide through the challenging journ
               </FormControl>
             )}
           </Field>
+          <Box ml={['60%','80%']} >
+
+       
           <Button
-          //@ts-ignore
-            // mt={4}
-            style={{marginLeft:'80%' ,width:'20%'}}
+           
              //@ts-ignore
+            //  width={'30%'}
             colorScheme='teal'
             disabled={disabled}
             isLoading={props.isSubmitting}
@@ -192,6 +194,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
           >
             Submit
           </Button>
+          </Box>
         </Form>
       )}
     </Formik>

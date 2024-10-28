@@ -180,22 +180,20 @@ Remember, your purpose is to be a supportive guide through the challenging journ
         focus-within:shadow-sm
         grid
       grid-cols-2
-        gap-6
+       md:gap-6
       ">
           <Field style={{ width:'140%'}} name='name' >
             {({ field, form }:any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
               
-                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'180%'}} className="border-black md:w-full"/>
+                <Input {...field}  placeholder="How are you feeling today?" style={{ width:'140%'}} className="border-black md:w-full"/>
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
+          <Box  ml={['60%','80%']} >
           <Button
           //@ts-ignore
-            // mt={4}
-            style={{marginLeft:'80%' ,width:'20%'}}
-             //@ts-ignore
             colorScheme='teal'
             disabled={disabled}
             isLoading={props.isSubmitting}
@@ -203,6 +201,7 @@ Remember, your purpose is to be a supportive guide through the challenging journ
           >
             Submit
           </Button>
+          </Box>
         </Form>
       )}
     </Formik>

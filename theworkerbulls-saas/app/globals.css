@@ -4,6 +4,8 @@
 
 html,
 body,
+
+
 :root {
   height: 100%;
 }
@@ -81,4 +83,5 @@ body,
   body {
     @apply bg-background text-foreground;
   }
+  
 }
