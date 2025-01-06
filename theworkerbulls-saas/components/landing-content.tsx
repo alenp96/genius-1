@@ -235,7 +235,7 @@ export default function LandingContent() {
                   $
                 </Text>
                 <Text color={'white'} fontSize="5xl" fontWeight="900">
-                  39
+                  13
                 </Text>
                 <Text fontSize="3xl" color="gray.500">
                   /month
